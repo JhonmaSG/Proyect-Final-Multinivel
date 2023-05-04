@@ -1,0 +1,35 @@
+[33mcommit cea9b2ba702d7fe16ae8eee657e361a1408b88d1[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: CSteevenJ <csjimenezs@udistrital.edu.co>
+Date:   Wed May 3 11:05:58 2023 -0500
+
+    Prueba de cambio de label V principal
+
+[33mcommit d5ac747d03a9e2f52c82d893cf1c48e1bd8d9312[m
+Author: CSteevenJ <csjimenezs@udistrital.edu.co>
+Date:   Wed May 3 10:56:43 2023 -0500
+
+    Prueba de cambio de usuario
+
+[33mcommit e1e05400c84179cd01eca62c5176f0dcd3751cf7[m
+Author: JhonmaSG <jmserranog@udistrital.edu.co>
+Date:   Fri Apr 28 14:04:59 2023 -0500
+
+    Creacion de LOGIN y Pestaña principal de admin
+
+[33mcommit a9989cb7be90825f008bd1493e5079920325b9c4[m
+Author: JhonmaSG <jmserranog@udistrital.edu.co>
+Date:   Sat Apr 22 08:45:47 2023 -0500
+
+    Agrego Panel principal y Menu
+
+[33mcommit 0f3df755db17521e2dca58dbcc4cd6c6454e177d[m
+Author: JhonmaSG <jmserranog@udistrital.edu.co>
+Date:   Sat Apr 22 08:34:31 2023 -0500
+
+    Creacion de JFrame Vista
+
+[33mcommit 4cb88892b84dd446bbfc79c38e6249e50b5b2439[m
+Author: JhonmaSG <jmserranog@udistrital.edu.co>
+Date:   Sat Apr 22 08:33:21 2023 -0500
+
+    Inicializamos el repositorio

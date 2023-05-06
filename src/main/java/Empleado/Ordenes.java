@@ -41,7 +41,6 @@ public class Ordenes extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
@@ -155,9 +154,6 @@ public class Ordenes extends javax.swing.JFrame {
         jMenu2.setText("INVENTARIO");
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("VENTAS");
-        jMenuBar1.add(jMenu3);
-
         jMenu4.setText("ORDENES");
         jMenuBar1.add(jMenu4);
 
@@ -246,7 +242,6 @@ public class Ordenes extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;

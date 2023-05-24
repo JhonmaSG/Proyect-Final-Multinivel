@@ -9,6 +9,11 @@
             <Property name="text" type="java.lang.String" value="INICIO"/>
           </Properties>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu6">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="NOMINA"/>
+          </Properties>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="text" type="java.lang.String" value="INVENTARIO"/>

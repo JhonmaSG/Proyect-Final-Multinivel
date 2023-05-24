@@ -1,0 +1,65 @@
+-- --------------------------------------------------
+-- -------------------------
+-- CONSULTAS DE PROYECCION
+-- -------------------------
+-- Mostrar Inventario actual
+SELECT Id_Em, Nombre_Em, Tel_Em FROM Empleado;
+-- Que clientes han comprado en nuestro taller
+SELECT No_Fv, Cliente_Nit_Cli, Fecha_Hora_Fv, Total_Pagar_Fv FROM Factura_Venta;
+-- Mostrar los datos de un empleado
+SELECT Nombre_Em, Apellido_Em, Tel_Em FROM Empleado;
+-- Mostrar los datos de las facturas
+SELECT Fecha_Hora_Fv, Total_Pagar_Fv FROM Factura_Venta;
+-- Mostrar los proveedores que tenemos
+SELECT Razon_Social_Pro, Direccion_Pro, Tel_Pro FROM Proveedor;
+-- --------------------------------------------------
+-- -------------------------
+-- CONSULTAS DE RECTRICCIÓN
+-- -------------------------
+-- Que materias primas estan por acabarse (menos de 4 existencias)
+SELECT * FROM Materia_Prima WHERE Cant_Exist_Mp < 4;
+-- Cuantas unidades de chaquetas se vendieron en un dia en especifico?
+SELECT * FROM Factura_Venta WHERE Fecha_Hora_Fv = '2023-05-10 11:30:00';
+-- Cuantos trabajadores tienen contrato activo actual?
+SELECT * FROM Contrato_Laboral WHERE Estado_Cl = 'Y';
+-- Cuantas ventas han sido en efectivo?
+SELECT * FROM Factura_Venta WHERE Forma_Pago_Fv = 'Efectivo';
+-- Cuantas ventas han sido en Tarjeta?
+SELECT * FROM Factura_Venta WHERE Forma_Pago_Fv = 'Tarjeta';
+-- Cuantas facturas de materias primas se han comprado en Efectivo?
+SELECT * FROM Factura_Compra WHERE Forma_Pago_Fc = 'Efectivo';
+-- Cuantos Productos existentes estan entre 10 y 20
+SELECT Descripcion_Pt, Cantidad_Existente_Pt FROM Producto_Terminado WHERE Cantidad_Existente_Pt BETWEEN 20 AND 30;
+-- Cuantas chaquetas compro este cliente?
+SELECT No_Fv, Cliente_Nit_Cli, Total_Pagar_Fv FROM Factura_Venta WHERE Cliente_Nit_Cli = 10121514;
+-- --------------------------------------------------
+-- -----------------------------
+-- CONSULTAS DE ORDENAMIENTO
+-- -----------------------------
+-- Ordenas los empleados por oredn alfabetico en los apellidos
+SELECT Id_Em, Nombre_Em, Apellido_Em FROM Empleado ORDER BY Apellido_Em;
+-- Ordenas los empleados por oredn alfabetico en los Nombres
+SELECT Id_Em, Nombre_Em, Apellido_Em FROM Empleado ORDER BY Nombre_Em;
+
+SELECT * FROM Empleado;
+-- --------------------------------------------------
+-- -----------------------------
+-- CONSULTAS DE ACTUALIZACIÓN
+-- -----------------------------
+-- Actualizar una Materia Prima en su cantidad.
+UPDATE Materia_Prima SET Cant_Exist_Mp = 9 WHERE Cod_Mp = 1100;
+-- Actualizar el numero de telefono de un Empleado en Especifico
+UPDATE Empleado SET Tel_Em = 3204777906 WHERE Id_Em = 172;
+-- 
+
+-- 
+
+-- 
+SELECT * FROM Materia_Prima;
+SELECT * FROM Detalle_Compra;
+SELECT * FROM Empleado;
+-- 
+-- --------------------------------------------------
+-- ---------------------------
+-- CONSULTAS DE BORRADO
+-- ---------------------------

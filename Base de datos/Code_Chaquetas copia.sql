@@ -14,6 +14,9 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema diagrama_bd_chaquetas
 -- -----------------------------------------------------
+CREATE DATABASE confeccion;
+USE confeccion;
+
 CREATE SCHEMA IF NOT EXISTS `diagrama_bd_chaquetas` DEFAULT CHARACTER SET utf8 ;
 SHOW WARNINGS;
 USE 'diagrama_bd_chaquetas' ;

@@ -1,0 +1,77 @@
+CREATE TABLE Proveedor(
+  `Nit_Pro` DOUBLE PRIMARY KEY NOT NULL,
+  `Razon_Social_Pro` VARCHAR(45) NOT NULL,
+  `Direccion_Pro` VARCHAR(45) NOT NULL,
+  `Tel_Pro` DOUBLE NOT NULL,
+  `Email_Pro` VARCHAR(45) NOT NULL
+);
+
+CREATE TABLE Cliente (
+  `Nit_Cli` DOUBLE PRIMARY KEY NOT NULL,
+  `Razon_Social_Cli` VARCHAR(45) NOT NULL,
+  `Direccion_Cli` VARCHAR(45) NOT NULL,
+  `Tel_Cli` DOUBLE NOT NULL
+);
+
+CREATE TABLE Empleado (
+  `Id_Em` INT PRIMARY KEY NOT NULL,
+  `Nombre_Em` VARCHAR(25) NOT NULL,
+  `Apellido_Em` VARCHAR(25) NOT NULL,
+  `Fecha_Naci_Em` DATE NOT NULL,
+  `Genero_Em` CHAR(1) NOT NULL,
+  `Direccion_Em` VARCHAR(45) NOT NULL,
+  `Tel_Em` DOUBLE NOT NULL,
+  `Email_Em` VARCHAR(45) NOT NULL
+  );
+  
+CREATE TABLE Materia_Prima (
+  `Cod_Mp` DOUBLE PRIMARY KEY NOT NULL DEFAULT 123456,
+  `Descrip_Mp` VARCHAR(45) NOT NULL DEFAULT 'algodon',
+  `Cant_Exist_Mp` INT NOT NULL DEFAULT 100
+  );
+  
+INSERT INTO Proveedor(Nit_Pro, Razon_Social_Pro, Direccion_Pro, Tel_Pro, Email_Pro) 
+VALUES (500, 'Lanas Colombia SA', 'Cra 50 No 14-40', 7953264, 'lanascolombiasa@gmail.com');
+INSERT INTO Proveedor(Nit_Pro, Razon_Social_Pro, Direccion_Pro, Tel_Pro, Email_Pro) 
+VALUES (520, 'Sinteitico Colombia SA', 'Cra 75 No 05-30 sur', 7126525, 'sinteiticocolombiasa@gmail.com');
+INSERT INTO Proveedor(Nit_Pro, Razon_Social_Pro, Direccion_Pro, Tel_Pro, Email_Pro) 
+VALUES (540, 'Cuero Colombia SA', 'Cra 91 No 15-42', 7961304, 'cuerocolombiasa@hotmail.com');
+INSERT INTO Proveedor(Nit_Pro, Razon_Social_Pro, Direccion_Pro, Tel_Pro, Email_Pro) 
+VALUES (560, 'Cuerina Colombia SA', 'Cra 72 No 61-43 sur', 7133231, 'cuerinacolombiasa@hotmail.com');
+INSERT INTO Proveedor(Nit_Pro, Razon_Social_Pro, Direccion_Pro, Tel_Pro, Email_Pro) 
+VALUES (580, 'Tela Colombia SA', 'Cra 63 No 91-02 Sur', 7112124, 'telacolombiasa@gmail.com');
+INSERT INTO Proveedor(Nit_Pro, Razon_Social_Pro, Direccion_Pro, Tel_Pro, Email_Pro) 
+VALUES(600,'Impermeables Colombia SA','Cra 5 No 70-55 sur',7423232,'impermeablescolombiasa@hotmail.com');
+-- SELECT * FROM Proveedor;
+
+INSERT INTO Cliente (Nit_Cli, Razon_Social_Cli, Direccion_Cli, Tel_Cli) 
+VALUES (10121514, 'jonathans confeccion', 'Cra 50 No 15-40', 3205419865);
+INSERT INTO Cliente (Nit_Cli, Razon_Social_Cli, Direccion_Cli, Tel_Cli) 
+VALUES (10236548, 'jonathans confeccion', 'Cra 75 No 05-30', 3136412054);
+INSERT INTO Cliente (Nit_Cli, Razon_Social_Cli, Direccion_Cli, Tel_Cli) 
+VALUES (11014898, 'jonathans confeccion', 'Cra 91 No 15-42', 3149650102);
+INSERT INTO Cliente (Nit_Cli, Razon_Social_Cli, Direccion_Cli, Tel_Cli) 
+VALUES (10054136, 'jonathans confeccion', 'Cra 72 No 61-43', 3156453510);
+INSERT INTO Cliente (Nit_Cli, Razon_Social_Cli, Direccion_Cli, Tel_Cli) 
+VALUES (12325449, 'jonathans confeccion', 'Cra 63 No 91-02', 3127414219);
+-- SELECT * FROM Cliente;
+
+INSERT INTO Materia_Prima (Cod_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (1000, 'Lana', 5);
+INSERT INTO Materia_Prima (Cod_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (1050, 'Sintetico', 6);
+INSERT INTO Materia_Prima (Cod_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (1100, 'Cuero', 3);
+INSERT INTO Materia_Prima (Cod_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (1150, 'Cuerina', 4);
+INSERT INTO Materia_Prima (Cod_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (1200, 'Tela', 2);
+INSERT INTO Materia_Prima (Cod_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (1320, 'Impermeable', 6);
+-- SELECT * FROM Materia_Prima;
+
+INSERT INTO Empleado (Id_Em, Nombre_Em, Apellido_Em, Fecha_Naci_Em, Genero_Em, Direccion_Em, Tel_Em, Email_Em) 
+VALUES (111, 'Daniel', 'Gutierrez','1990-08-12','M','Cra 40 No 20-01',3204516582, 'danielgutierres@gmail.com');
+INSERT INTO Empleado (Id_Em, Nombre_Em, Apellido_Em, Fecha_Naci_Em, Genero_Em, Direccion_Em, Tel_Em, Email_Em) 
+VALUES (153, 'Carlos', 'Ramirez','1995-10-02','M','Cra 80 No 50-02 sur',3104782154,'carlosramirez@gmail.com');
+INSERT INTO Empleado (Id_Em, Nombre_Em, Apellido_Em, Fecha_Naci_Em, Genero_Em, Direccion_Em, Tel_Em, Email_Em) 
+VALUES (172, 'Alejandro', 'Cuerdo','1980-12-24','M', 'Cra 25 No 61-09 sur',3058951240,'alejandrocuerdo@hotmail.com');
+INSERT INTO Empleado (Id_Em, Nombre_Em, Apellido_Em, Fecha_Naci_Em, Genero_Em, Direccion_Em, Tel_Em, Email_Em) 
+VALUES (182, 'Maria', 'Sanchez','1978-05-28','F','Cra 72 No 61-15',3186400201,'mariosanchez@hotmail.com');
+INSERT INTO Empleado (Id_Em, Nombre_Em, Apellido_Em, Fecha_Naci_Em, Genero_Em, Direccion_Em, Tel_Em, Email_Em) 
+VALUES (195, 'Angela', 'Perez','1999-11-01','F','Cra 81 No 58-05 sur',3209761240,'angelaperez@gmail.com');
+-- SELECT * FROM Empleado;

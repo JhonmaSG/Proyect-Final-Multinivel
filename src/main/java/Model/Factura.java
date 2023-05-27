@@ -8,14 +8,14 @@ package Model;
  *
  * @author Jhon
  */
-public class Facturas {
+public class Factura {
     private double No_Fv;
     private String Fecha_Hora_Fv;
     private String Metodo_Fv;
     private String Descrip_Fv;
     private double Total_Pagar_Fv;
 
-    public Facturas(double No_Fv, String Fecha_Hora_Fv, String Metodo_Fv, String Descrip_Fv, double Total_Pagar_Fv) {
+    public Factura(double No_Fv, String Fecha_Hora_Fv, String Metodo_Fv, String Descrip_Fv, double Total_Pagar_Fv) {
         this.No_Fv = No_Fv;
         this.Fecha_Hora_Fv = Fecha_Hora_Fv;
         this.Metodo_Fv = Metodo_Fv;

@@ -20,8 +20,8 @@ CREATE TABLE INVENTARIO (
   CREATE TABLE FACTURAS (
   `No_Fv` INT NOT NULL,
   `Fecha_Hora_Fv` DATETIME NOT NULL,
-  `Descrip_Fv` VARCHAR(50) NOT NULL,
   'Metodo_Fv' VARCHAR(20) NOT NULL,
+  `Descrip_Fv` VARCHAR(50) NOT NULL,
   `Total_Pagar_Fv` DOUBLE NOT NULL
   );
   
@@ -35,8 +35,6 @@ INSERT INTO INVENTARIO (Cod_Mp, Nombre_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES (13
 -- SELECT * FROM INVENTARIO;
 
 INSERT INTO EMPLEADO (Id_Em, Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,Des_Pension, Des_Salud, Salario) 
-VALUES (111, 'Daniel', 'Gutierrez','Costurero',3204516582, 'danielgutierres@gmail.com',44000,44000, 1200000);
-INSERT INTO EMPLEADO (Id_Em, Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,Des_Pension, Des_Salud, Salario) 
 VALUES (153, 'Carlos', 'Ramirez','Costurero',3104782154,'carlosramirez@gmail.com',44000,44000, 1200000);
 INSERT INTO EMPLEADO (Id_Em, Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,Des_Pension, Des_Salud, Salario) 
 VALUES (172, 'Alejandro', 'Cuerdo','Control de Calidad',3058951240,'alejandrocuerdo@hotmail.com',44000,44000, 1200000);
@@ -46,10 +44,10 @@ INSERT INTO EMPLEADO (Id_Em, Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,D
 VALUES (195, 'Angela', 'Perez','Fileteador',3209761240,'angelaperez@gmail.com',44000,44000, 1200000);
 -- SELECT * FROM EMPLEADO;
 
-INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (100,'2023-04-05 09:10:00','Efectivo' , '',  1000000);
-INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (101,'2023-04-20 12:05:00','Tarjeta' , '', 'Tarjeta' , 950000);
-INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (102,'2023-04-27 15:00:00','Efectivo' , '', 'Efectivo' , 1200000);
-INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (103,'2023-05-05 11:55:00','Tarjeta' , '', 'Tarjeta' , 1500000);
-INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (104,'2023-05-10 12:30:00','Efectivo' , '', 'Efectivo' , 2000000);
-INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (105,'2023-05-10 11:30:00','Efectivo' , '', 'Efectivo' , 2000000);
--- SELECT * FROM FACTURAS;
+INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (100,'2023-04-05 09:10:00', 'Efectivo', 'sin descripcion',  1000000);
+INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (101,'2023-04-20 12:05:00', 'Tarjeta', 'sin descripcion',  950000);
+INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (102,'2023-04-27 15:00:00', 'Efectivo', 'sin descripcion',  1200000);
+INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (103,'2023-05-05 11:55:00', 'Tarjeta', 'sin descripcion',  1500000);
+INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (104,'2023-05-10 12:30:00', 'Efectivo', 'sin descripcion',  2000000);
+INSERT INTO FACTURAS(No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES (105,'2023-05-10 11:30:00', 'Efectivo', 'sin descripcion',  2000000);
+-- SELECT * FROM Factura_Venta;

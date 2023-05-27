@@ -35,7 +35,7 @@ public class Connector {
     String url = "jdbc:mysql://localhost:3306/";
     String user = "root";
     String password = "";    
-    String driver  = "com.mysql.cj.jdbc.Driver"; // SI HAY PROBLEMAS CAMBIAR POR "com.mysql.cj.jdbc.Driver"
+    String driver  = "com.mysql.cj.jdbc.Driver";
     
     Connection cx;
 
@@ -46,7 +46,7 @@ public class Connector {
     public Connection conectar(){
         try {
             Class.forName(driver);
-            cx = DriverManager.getConnection(url+bd, user, password);
+            cx = DriverManager.getConnection(url + bd, user, password);
             System.out.println("Conexion exitosa con la bd " + bd);
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("No se Conecto a la BD, error: " + ex.getMessage());   

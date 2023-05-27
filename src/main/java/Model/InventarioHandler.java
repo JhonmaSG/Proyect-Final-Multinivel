@@ -23,10 +23,10 @@ public class InventarioHandler {
         conexion.conectar();
     }
     
-    public ArrayList<Factura> getAllInventario(){
+    public ArrayList<Inventario> getAllInventario(){
         
         Inventario inventario = null;
-        ArrayList<Factura> Facturas = new ArrayList<>();
+        ArrayList<Inventario> Inventarios = new ArrayList<>();
         
         try(Connection connection=conexion.conectar()){
             String query = "SELECT * FROM `ventas`";        
@@ -35,18 +35,18 @@ public class InventarioHandler {
             
             while(result.next()){
                 //empleado = new Empleado(result.getInt("id"),result.getString("tipo_combustible"), result.getFloat("galones"), result.getFloat("precio"),result.getString("fecha"));
-                Facturas.add(inventario);   
+                Inventarios.add(inventario);   
             }
             stmt.close();
             result.close();
-            return Facturas;
+            return Inventarios;
         } catch (SQLException e){
             System.out.println(e.getMessage());
             return null;
         }                        
     }
     
-        public ArrayList<Inventario> getFactura(String combustible){
+        public ArrayList<Inventario> getInventario(String combustible){
         Inventario inventario = null;
         ArrayList<Inventario> Inventarios = new ArrayList<>();
         try(Connection connection=conexion.conectar()){

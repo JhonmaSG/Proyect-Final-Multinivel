@@ -46,7 +46,7 @@ public class EmpleadoHandler {
         }                        
     }
     
-        public ArrayList<Empleado> getVentas(String combustible){
+        public ArrayList<Empleado> getEmpleado(String combustible){
         Empleado empleado = null;
         ArrayList<Empleado> Empleados = new ArrayList<>();
         try(Connection connection=conexion.conectar()){

@@ -76,7 +76,6 @@ public class AdmVentasListView extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -197,9 +196,6 @@ public class AdmVentasListView extends javax.swing.JFrame {
         jMenu3.setText("VENTAS");
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("ORDENES");
-        jMenuBar1.add(jMenu4);
-
         jMenu5.setText("AYUDA");
         jMenuBar1.add(jMenu5);
 
@@ -295,7 +291,6 @@ public class AdmVentasListView extends javax.swing.JFrame {
     public static javax.swing.JMenu jMenu1;
     public static javax.swing.JMenu jMenu2;
     public static javax.swing.JMenu jMenu3;
-    public static javax.swing.JMenu jMenu4;
     public static javax.swing.JMenu jMenu5;
     public static javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;

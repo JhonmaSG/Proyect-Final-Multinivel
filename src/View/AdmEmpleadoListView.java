@@ -13,12 +13,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Jhon
  */
-public class AdmNominaListView extends javax.swing.JFrame {
+public class AdmEmpleadoListView extends javax.swing.JFrame {
 DefaultTableModel modelTable = new DefaultTableModel();
     /**
      * Creates new form Principal
      */
-    public AdmNominaListView() {
+    public AdmEmpleadoListView() {
         initComponents();
         
         this.JTableEmp.setModel(modelTable);
@@ -86,7 +86,6 @@ DefaultTableModel modelTable = new DefaultTableModel();
         jMenu6 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -205,9 +204,6 @@ DefaultTableModel modelTable = new DefaultTableModel();
         jMenu3.setText("VENTAS");
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setText("ORDENES");
-        jMenuBar1.add(jMenu4);
-
         jMenu5.setText("AYUDA");
         jMenuBar1.add(jMenu5);
 
@@ -260,14 +256,30 @@ DefaultTableModel modelTable = new DefaultTableModel();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdmNominaListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmpleadoListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdmNominaListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmpleadoListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdmNominaListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmpleadoListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdmNominaListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdmEmpleadoListView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -288,7 +300,7 @@ DefaultTableModel modelTable = new DefaultTableModel();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdmNominaListView().setVisible(true);
+                new AdmEmpleadoListView().setVisible(true);
             }
         });
     }
@@ -303,7 +315,6 @@ DefaultTableModel modelTable = new DefaultTableModel();
     public static javax.swing.JMenu jMenu1;
     public static javax.swing.JMenu jMenu2;
     public static javax.swing.JMenu jMenu3;
-    public static javax.swing.JMenu jMenu4;
     public static javax.swing.JMenu jMenu5;
     public static javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;

@@ -64,19 +64,18 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JButtonAddMat = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         JTableInven = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JButtonEliMat = new javax.swing.JButton();
+        JButtonExportar = new javax.swing.JButton();
+        JButtonModMat = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        JMenuInicio = new javax.swing.JMenu();
+        JMenuEmpleado = new javax.swing.JMenu();
+        JMenuInventario = new javax.swing.JMenu();
+        JMenuVentas = new javax.swing.JMenu();
+        JMenuAyuda = new javax.swing.JMenu();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,12 +96,12 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("INVENTARIO");
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Agregar Material");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JButtonAddMat.setBackground(new java.awt.Color(102, 255, 0));
+        JButtonAddMat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JButtonAddMat.setText("Agregar Material");
+        JButtonAddMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JButtonAddMatActionPerformed(evt);
             }
         });
 
@@ -119,30 +118,30 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(JTableInven);
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Eliminar Material");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JButtonEliMat.setBackground(new java.awt.Color(255, 51, 51));
+        JButtonEliMat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JButtonEliMat.setText("Eliminar Material");
+        JButtonEliMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JButtonEliMatActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setText("Exportar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JButtonExportar.setBackground(new java.awt.Color(255, 204, 0));
+        JButtonExportar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JButtonExportar.setText("Exportar");
+        JButtonExportar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JButtonExportarActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 204, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setText("Modificar Material");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        JButtonModMat.setBackground(new java.awt.Color(0, 204, 255));
+        JButtonModMat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JButtonModMat.setText("Modificar Material");
+        JButtonModMat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JButtonModMatActionPerformed(evt);
             }
         });
 
@@ -156,13 +155,13 @@ public class AdmInventarioListView extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton1)
+                            .addComponent(JButtonAddMat)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4)
+                            .addComponent(JButtonModMat)
                             .addGap(45, 45, 45)
-                            .addComponent(jButton2)
+                            .addComponent(JButtonEliMat)
                             .addGap(51, 51, 51)
-                            .addComponent(jButton3))
+                            .addComponent(JButtonExportar))
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
@@ -175,30 +174,32 @@ public class AdmInventarioListView extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JButtonAddMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonModMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonEliMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JButtonExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        jMenu1.setText("INICIO");
-        jMenuBar1.add(jMenu1);
+        JMenuInicio.setText("INICIO");
+        JMenuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JMenuInicioMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(JMenuInicio);
 
-        jMenu6.setText("NOMINA");
-        jMenuBar1.add(jMenu6);
+        JMenuEmpleado.setText("NOMINA");
+        jMenuBar1.add(JMenuEmpleado);
 
-        jMenu2.setText("INVENTARIO");
-        jMenuBar1.add(jMenu2);
+        JMenuInventario.setText("INVENTARIO");
+        jMenuBar1.add(JMenuInventario);
 
-        jMenu3.setText("VENTAS");
-        jMenuBar1.add(jMenu3);
+        JMenuVentas.setText("VENTAS");
+        jMenuBar1.add(JMenuVentas);
 
-        jMenu4.setText("ORDENES");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("AYUDA");
-        jMenuBar1.add(jMenu5);
+        JMenuAyuda.setText("AYUDA");
+        jMenuBar1.add(JMenuAyuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -216,21 +217,26 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void JButtonAddMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonAddMatActionPerformed
+        
+    }//GEN-LAST:event_JButtonAddMatActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void JButtonEliMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonEliMatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_JButtonEliMatActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void JButtonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonExportarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_JButtonExportarActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void JButtonModMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonModMatActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_JButtonModMatActionPerformed
+
+    private void JMenuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMenuInicioMouseClicked
+        //PRINCIPAL
+        //JMenuInicio.addActionListener();
+    }//GEN-LAST:event_JMenuInicioMouseClicked
 
     /**
      * @param args the command line arguments
@@ -275,18 +281,17 @@ public class AdmInventarioListView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JButtonAddMat;
+    private javax.swing.JButton JButtonEliMat;
+    private javax.swing.JButton JButtonExportar;
+    private javax.swing.JButton JButtonModMat;
+    public static javax.swing.JMenu JMenuAyuda;
+    public static javax.swing.JMenu JMenuEmpleado;
+    public static javax.swing.JMenu JMenuInicio;
+    public static javax.swing.JMenu JMenuInventario;
+    public static javax.swing.JMenu JMenuVentas;
     private javax.swing.JTable JTableInven;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    public static javax.swing.JMenu jMenu1;
-    public static javax.swing.JMenu jMenu2;
-    public static javax.swing.JMenu jMenu3;
-    public static javax.swing.JMenu jMenu4;
-    public static javax.swing.JMenu jMenu5;
-    public static javax.swing.JMenu jMenu6;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

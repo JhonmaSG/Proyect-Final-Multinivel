@@ -4,7 +4,6 @@
  */
 package Controller;
 
-import Model.Factura;
 import View.AdmAyudaListView;
 import View.AdmEmpleadoListView;
 import View.AdmInventarioListView;
@@ -16,46 +15,43 @@ import java.awt.event.ActionEvent;
  *
  * @author Jhon
  */
-public class ControllerVentas {
+public class ControllerAyuda {
     private AdmPrincipalListView principalView;
     private AdmInventarioListView inventarioView;
     private AdmEmpleadoListView empleadoView;
     private AdmVentasListView ventasView;
     private AdmAyudaListView ayudaView;
-    
-    //Model
-    private Factura facturaModel;
 
-    public ControllerVentas(AdmPrincipalListView principalView, AdmInventarioListView inventarioView, AdmEmpleadoListView empleadoView, AdmVentasListView ventasView, AdmAyudaListView ayudaView, Factura facturaModel) {
+    public ControllerAyuda(AdmPrincipalListView principalView, AdmInventarioListView inventarioView, AdmEmpleadoListView empleadoView, AdmVentasListView ventasView, AdmAyudaListView ayudaView) {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
         this.ventasView = ventasView;
         this.ayudaView = ayudaView;
         
-        //Model
-        this.facturaModel = facturaModel;
+        ayudaView.setVisible(true);
         
         //PRINCIPAL
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
+        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+            ayudaView.setVisible(false);
             principalView.setVisible(true);
         });
-        //INVENTARIO
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
-            ventasView.setVisible(true);
-        });
-        //EMPLEADO
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
-            empleadoView.setVisible(true);
-        });
-        //AYUDA
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
-            ayudaView.setVisible(true);
+        //IMVENTARIO
+        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+            ayudaView.setVisible(false);
+            inventarioView.setVisible(true);
         });
         
-    }  
+        //EMPLEADO
+        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+            ayudaView.setVisible(false);
+            empleadoView.setVisible(true);
+        });
+        //VENTAS-FACTURA
+        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+            ayudaView.setVisible(false);
+            ventasView.setVisible(true);
+        });
+        
+    } 
 }

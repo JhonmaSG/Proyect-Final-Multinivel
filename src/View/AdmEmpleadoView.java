@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Jhon
  */
-public class AdmNominaView {
+public class AdmEmpleadoView {
     public void mostrarDatos(ArrayList<Empleado> models){
         for (Empleado p:models) {
             System.out.println(p.getId());

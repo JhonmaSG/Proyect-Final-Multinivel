@@ -4,7 +4,7 @@
  */
 package Model;
 
-import database.Connector;
+import database.ConnectorDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class InventarioHandler {
-    Connector conexion = new Connector("confeccionista");
+    ConnectorDB conexion = new ConnectorDB("confeccionista");
 
     public InventarioHandler() {
         conexion.conectar();
@@ -50,7 +50,7 @@ public class InventarioHandler {
         Inventario inventario = null;
         ArrayList<Inventario> Inventarios = new ArrayList<>();
         try(Connection connection=conexion.conectar()){
-            String query = "SELECT * FROM `ventas` WHERE tipo_combustible="+combustible;        
+            String query = "SELECT * FROM `INVENTARIO` WHERE tipo_combustible="+combustible;        
             Statement stmt = connection.createStatement();                        
             ResultSet result = stmt.executeQuery(query);
             
@@ -69,8 +69,8 @@ public class InventarioHandler {
     
     public void Insert(Inventario inventarios){
         try(Connection connection=conexion.conectar()){
-            String query = "INSERT INTO `ventas` (tipo_combustible,galones,precio,fecha) VALUES('"+venta.getNombre()+
-                    "',"+inventarios.getCantidad()+","+inventarios.getPrecioTotal()+",'"+inventarios.getFecha()+"')";        
+            String query = "INSERT INTO `INVENTARIO` (Cod_Mp, Nombre_Mp, Descrip_Mp, Cant_Exist_Mp) VALUES('"+inventarios.getCod_Mp()+
+                    "',"+inventarios.getNombre_Mp()+","+inventarios.getDescrip_Mp()+",'"+inventarios.getCant_Exist_Mp()+"')";
             PreparedStatement stmt = connection.prepareStatement(query);     
  
             stmt.execute();

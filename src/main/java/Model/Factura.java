@@ -8,23 +8,18 @@ package Model;
  *
  * @author Jhon
  */
-public class Factura {
-    private double No_Fv;
+public class Factura extends ModelFactura{
     private String Fecha_Hora_Fv;
     private String Metodo_Fv;
     private String Descrip_Fv;
-    private double Total_Pagar_Fv;
+    private String Total_Pagar_Fv;
 
-    public Factura(double No_Fv, String Fecha_Hora_Fv, String Metodo_Fv, String Descrip_Fv, double Total_Pagar_Fv) {
-        this.No_Fv = No_Fv;
+    public Factura(int No_Fv, String Fecha_Hora_Fv, String Metodo_Fv, String Descrip_Fv, String Total_Pagar_Fv) {
+        super(No_Fv);
         this.Fecha_Hora_Fv = Fecha_Hora_Fv;
         this.Metodo_Fv = Metodo_Fv;
         this.Descrip_Fv = Descrip_Fv;
         this.Total_Pagar_Fv = Total_Pagar_Fv;
-    }
-
-    public double getNo_Fv() {
-        return No_Fv;
     }
 
     public String getFecha_Hora_Fv() {
@@ -39,7 +34,7 @@ public class Factura {
         return Descrip_Fv;
     }
 
-    public double getTotal_Pagar_Fv() {
+    public String getTotal_Pagar_Fv() {
         return Total_Pagar_Fv;
     }
 

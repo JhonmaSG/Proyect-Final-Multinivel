@@ -4,7 +4,7 @@
  */
 package Model;
 
-import database.Connector;
+import database.ConnectorDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class FacturaHandler {
-    Connector conexion = new Connector("confeccionista");
+    ConnectorDB conexion = new ConnectorDB("confeccionista");
 
     public FacturaHandler() {
         conexion.conectar();
@@ -29,7 +29,7 @@ public class FacturaHandler {
         ArrayList<Factura> Facturas = new ArrayList<>();
         
         try(Connection connection=conexion.conectar()){
-            String query = "SELECT * FROM `ventas`";        
+            String query = "SELECT * FROM `FACTURA`";        
             Statement stmt = connection.createStatement();                        
             ResultSet result = stmt.executeQuery(query);
             
@@ -50,7 +50,7 @@ public class FacturaHandler {
         Factura factura = null;
         ArrayList<Factura> Facturas = new ArrayList<>();
         try(Connection connection=conexion.conectar()){
-            String query = "SELECT * FROM `ventas` WHERE tipo_combustible="+combustible;        
+            String query = "SELECT * FROM `FACTURA` WHERE tipo_combustible="+combustible;        
             Statement stmt = connection.createStatement();                        
             ResultSet result = stmt.executeQuery(query);
             
@@ -69,9 +69,9 @@ public class FacturaHandler {
     
     public void Insert(Factura facturas){
         try(Connection connection=conexion.conectar()){
-            String query = "INSERT INTO `ventas` (tipo_combustible,galones,precio,fecha) VALUES('"+venta.getNombre()+
-                    "',"+facturas.getCantidad()+","+facturas.getPrecioTotal()+",'"+facturas.getFecha()+"')";        
-            PreparedStatement stmt = connection.prepareStatement(query);     
+            String query = "INSERT INTO `FACTURA` (No_Fv, Fecha_Hora_Fv, Metodo_Fv, Descrip_Fv ,Total_Pagar_Fv) VALUES('"+facturas.getNo_Fv()+
+                    "',"+facturas.getFecha_Hora_Fv()+","+facturas.getMetodo_Fv()+",'"+facturas.getDescrip_Fv()+"',"+facturas.getTotal_Pagar_Fv()+"')";        
+            PreparedStatement stmt = connection.prepareStatement(query);
  
             stmt.execute();
             stmt.close();

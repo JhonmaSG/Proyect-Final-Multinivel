@@ -4,7 +4,7 @@
  */
 package Model;
 
-import database.Connector;
+import database.ConnectorDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class EmpleadoHandler {
-    Connector conexion = new Connector("confeccionista");
+    ConnectorDB conexion = new ConnectorDB("confeccionista");
 
     public EmpleadoHandler() {
         conexion.conectar();
@@ -29,7 +29,7 @@ public class EmpleadoHandler {
         ArrayList<Empleado> Empleados = new ArrayList<>();
         
         try(Connection connection=conexion.conectar()){
-            String query = "SELECT * FROM `ventas`";        
+            String query = "SELECT * FROM `EMPLEADO`";        
             Statement stmt = connection.createStatement();                        
             ResultSet result = stmt.executeQuery(query);
             
@@ -50,7 +50,7 @@ public class EmpleadoHandler {
         Empleado empleado = null;
         ArrayList<Empleado> Empleados = new ArrayList<>();
         try(Connection connection=conexion.conectar()){
-            String query = "SELECT * FROM `ventas` WHERE tipo_combustible="+combustible;        
+            String query = "SELECT * FROM EMPLEADO WHERE tipo_combustible="+combustible;        
             Statement stmt = connection.createStatement();                        
             ResultSet result = stmt.executeQuery(query);
             
@@ -69,8 +69,9 @@ public class EmpleadoHandler {
     
     public void Insert(Empleado empleados){
         try(Connection connection=conexion.conectar()){
-            String query = "INSERT INTO `ventas` (tipo_combustible,galones,precio,fecha) VALUES('"+venta.getNombre()+
-                    "',"+empleados.getCantidad()+","+empleados.getPrecioTotal()+",'"+empleados.getFecha()+"')";        
+            String query = "INSERT INTO `EMPLEADO` (Id_Em, Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,Des_Pension, Des_Salud, Salario)"
+                    + " VALUES('"+empleados.getId_Em()+"',"+empleados.getNombre_Em()+","+empleados.getApellido_Em()+",'"+empleados.getCargo()
+                    +"',"+empleados.getCorreo_Em()+"',"+empleados.getDes_Pension()+"',"+empleados.getDes_Salud()+"',"+empleados.getSalario()+"')";        
             PreparedStatement stmt = connection.prepareStatement(query);     
  
             stmt.execute();

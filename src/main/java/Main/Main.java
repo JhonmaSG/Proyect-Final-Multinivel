@@ -4,15 +4,19 @@
 
 package Main;
 
+import java.sql.SQLException;
+
 /**
  *
  * @author Jhon
  */
 public class Main {
-
-    public static void main(String[] args) {
-        System.out.println("hola :D");
-        System.out.println("Hello World!!!!");
-        System.out.println("Inicializando proeycto de multinivel!!!!");
+    public static void main(String[] args) throws SQLException {
+        /*
+       ClientsListView view = new ClientsListView();
+       ClientsModel model = null;
+       
+       ClientsController controller = new ClientsController(view, model);
+    */
     }
 }

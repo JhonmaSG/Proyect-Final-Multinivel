@@ -8,21 +8,16 @@ package Model;
  *
  * @author Jhon
  */
-public class Inventario {
-    private int Cod_Mp;
+public class Inventario extends ModelInventario{
     private String Nombre_Mp;
     private String Descrip_Mp;
-    private int Cantidad_Exis_Mp;
+    private String Cant_Exist_Mp;
 
-    public Inventario(int Cod_Mp, String Nombre_Mp, String Descrip_Mp, int Cantidad_Exis_Mp) {
-        this.Cod_Mp = Cod_Mp;
+    public Inventario(int Cod_Mp, String Nombre_Mp, String Descrip_Mp, String Cant_Exist_Mp) {
+        super(Cod_Mp);
         this.Nombre_Mp = Nombre_Mp;
         this.Descrip_Mp = Descrip_Mp;
-        this.Cantidad_Exis_Mp = Cantidad_Exis_Mp;
-    }
-
-    public int getCod_Mp() {
-        return Cod_Mp;
+        this.Cant_Exist_Mp = Cant_Exist_Mp;
     }
 
     public String getNombre_Mp() {
@@ -33,8 +28,8 @@ public class Inventario {
         return Descrip_Mp;
     }
 
-    public int getCantidad_Exis_Mp() {
-        return Cantidad_Exis_Mp;
+    public String getCant_Exist_Mp() {
+        return Cant_Exist_Mp;
     }
     
     

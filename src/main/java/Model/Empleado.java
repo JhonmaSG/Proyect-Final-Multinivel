@@ -8,31 +8,27 @@ package Model;
  *
  * @author Jhon
  */
-public class Empleado {
-    private double Id_Em;
+public class Empleado extends ModelEmpleado{
+    //private int Id_Em;
     private String Nombre_Em;
     private String Apellido_Em;
     private String Cargo;
-    private double Tel_Em;
-    private String correo_Em;
-    private double Des_Pension;
-    private double Des_Salud;
-    private double Salario;
+    private String Tel_Em;
+    private String Correo_Em;
+    private String Des_Pension;
+    private String Des_Salud;
+    private String Salario;
 
-    public Empleado(double Id_Em, String Nombre_Em, String Apellido_Em, String Cargo, double Tel_Em, String correo_Em, double Des_Pension, double Des_Salud, double Salario) {
-        this.Id_Em = Id_Em;
+    public Empleado(int Id_Em, String Nombre_Em, String Apellido_Em, String Cargo, String Tel_Em, String Correo_Em, String Des_Pension, String Des_Salud, String Salario) {
+        super(Id_Em);
         this.Nombre_Em = Nombre_Em;
         this.Apellido_Em = Apellido_Em;
         this.Cargo = Cargo;
         this.Tel_Em = Tel_Em;
-        this.correo_Em = correo_Em;
+        this.Correo_Em = Correo_Em;
         this.Des_Pension = Des_Pension;
         this.Des_Salud = Des_Salud;
         this.Salario = Salario;
-    }
-
-    public double getId_Em() {
-        return Id_Em;
     }
 
     public String getNombre_Em() {
@@ -47,23 +43,23 @@ public class Empleado {
         return Cargo;
     }
 
-    public double getTel_Em() {
+    public String getTel_Em() {
         return Tel_Em;
     }
 
     public String getCorreo_Em() {
-        return correo_Em;
+        return Correo_Em;
     }
 
-    public double getDes_Pension() {
+    public String getDes_Pension() {
         return Des_Pension;
     }
 
-    public double getDes_Salud() {
+    public String getDes_Salud() {
         return Des_Salud;
     }
 
-    public double getSalario() {
+    public String getSalario() {
         return Salario;
     }
 

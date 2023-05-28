@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Jhon
  */
-public class AdmVentasView {
+public class AdmFacturaView {
     public void mostrarDatos(ArrayList<Factura> models){
         for (Factura p:models) {
             System.out.println(p.getId());

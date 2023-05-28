@@ -20,6 +20,8 @@ public class AdmInventarioListView extends javax.swing.JFrame {
      */
     public AdmInventarioListView() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this. setTitle("INVENTARIO");
         
         this.JTableInven.setModel(modelTable);
         
@@ -50,6 +52,21 @@ public class AdmInventarioListView extends javax.swing.JFrame {
     public int getSelectedClient(){
         return this.JTableInven.getSelectedRow();
     }
+    public void cambiarPrincipal(ActionListener listener){
+        JBPrincipal2.addActionListener(listener);
+    }
+    public void cambiarEmpleado(ActionListener listener){
+        JBEmpleado2.addActionListener(listener);
+    }
+    public void cambiarInventario(ActionListener listener){
+        JBInventario2.addActionListener(listener);
+    }
+    public void cambiarFactura(ActionListener listener){
+        JBFactura2.addActionListener(listener);
+    }
+    public void cambiarAyuda(ActionListener listener){
+        JBAyuda2.addActionListener(listener);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -70,12 +87,11 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         JButtonEliMat = new javax.swing.JButton();
         JButtonExportar = new javax.swing.JButton();
         JButtonModMat = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        JMenuInicio = new javax.swing.JMenu();
-        JMenuEmpleado = new javax.swing.JMenu();
-        JMenuInventario = new javax.swing.JMenu();
-        JMenuVentas = new javax.swing.JMenu();
-        JMenuAyuda = new javax.swing.JMenu();
+        JBPrincipal2 = new javax.swing.JButton();
+        JBEmpleado2 = new javax.swing.JButton();
+        JBInventario2 = new javax.swing.JButton();
+        JBFactura2 = new javax.swing.JButton();
+        JBAyuda2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -145,6 +161,31 @@ public class AdmInventarioListView extends javax.swing.JFrame {
             }
         });
 
+        JBPrincipal2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBPrincipal2.setText("INICIO");
+
+        JBEmpleado2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBEmpleado2.setText("EMPLEADO");
+
+        JBInventario2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBInventario2.setText("INVENTARIO");
+        JBInventario2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBInventario2ActionPerformed(evt);
+            }
+        });
+
+        JBFactura2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBFactura2.setText("FACTURA");
+        JBFactura2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFactura2ActionPerformed(evt);
+            }
+        });
+
+        JBAyuda2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBAyuda2.setText("AYUDA");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -153,22 +194,43 @@ public class AdmInventarioListView extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(JButtonAddMat)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JButtonModMat)
-                            .addGap(45, 45, 45)
-                            .addComponent(JButtonEliMat)
-                            .addGap(51, 51, 51)
-                            .addComponent(JButtonExportar))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(JButtonAddMat)
+                        .addGap(47, 47, 47)
+                        .addComponent(JButtonModMat)
+                        .addGap(45, 45, 45)
+                        .addComponent(JButtonEliMat)
+                        .addGap(51, 51, 51)
+                        .addComponent(JButtonExportar)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JBPrincipal2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBInventario2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBFactura2, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBAyuda2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JBFactura2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBPrincipal2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JBEmpleado2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBAyuda2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBInventario2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,30 +240,8 @@ public class AdmInventarioListView extends javax.swing.JFrame {
                     .addComponent(JButtonModMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonEliMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
-
-        JMenuInicio.setText("INICIO");
-        JMenuInicio.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JMenuInicioMouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(JMenuInicio);
-
-        JMenuEmpleado.setText("NOMINA");
-        jMenuBar1.add(JMenuEmpleado);
-
-        JMenuInventario.setText("INVENTARIO");
-        jMenuBar1.add(JMenuInventario);
-
-        JMenuVentas.setText("VENTAS");
-        jMenuBar1.add(JMenuVentas);
-
-        JMenuAyuda.setText("AYUDA");
-        jMenuBar1.add(JMenuAyuda);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -233,10 +273,13 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JButtonModMatActionPerformed
 
-    private void JMenuInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMenuInicioMouseClicked
-        //PRINCIPAL
-        //JMenuInicio.addActionListener();
-    }//GEN-LAST:event_JMenuInicioMouseClicked
+    private void JBInventario2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBInventario2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBInventario2ActionPerformed
+
+    private void JBFactura2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFactura2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBFactura2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,18 +324,17 @@ public class AdmInventarioListView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBAyuda2;
+    private javax.swing.JButton JBEmpleado2;
+    private javax.swing.JButton JBFactura2;
+    private javax.swing.JButton JBInventario2;
+    private javax.swing.JButton JBPrincipal2;
     private javax.swing.JButton JButtonAddMat;
     private javax.swing.JButton JButtonEliMat;
     private javax.swing.JButton JButtonExportar;
     private javax.swing.JButton JButtonModMat;
-    public static javax.swing.JMenu JMenuAyuda;
-    public static javax.swing.JMenu JMenuEmpleado;
-    public static javax.swing.JMenu JMenuInicio;
-    public static javax.swing.JMenu JMenuInventario;
-    public static javax.swing.JMenu JMenuVentas;
     private javax.swing.JTable JTableInven;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;

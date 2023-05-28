@@ -4,6 +4,8 @@
  */
 package View;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Jhon
@@ -15,8 +17,24 @@ public class AdmAyudaListView extends javax.swing.JFrame {
      */
     public AdmAyudaListView() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this. setTitle("AYUDA");
     }
-
+    public void cambiarPrincipal(ActionListener listener){
+        JBPrincipal4.addActionListener(listener);
+    }
+    public void cambiarEmpleado(ActionListener listener){
+        JBEmpleado4.addActionListener(listener);
+    }
+    public void cambiarInventario(ActionListener listener){
+        JBInventario4.addActionListener(listener);
+    }
+    public void cambiarFactura(ActionListener listener){
+        JBFactura4.addActionListener(listener);
+    }
+    public void cambiarAyuda(ActionListener listener){
+        JBAyuda4.addActionListener(listener);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,13 +55,11 @@ public class AdmAyudaListView extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
+        JBPrincipal4 = new javax.swing.JButton();
+        JBEmpleado4 = new javax.swing.JButton();
+        JBInventario4 = new javax.swing.JButton();
+        JBFactura4 = new javax.swing.JButton();
+        JBAyuda4 = new javax.swing.JButton();
 
         jLabel11.setText("Descripcion de la empresa y el programa");
 
@@ -52,8 +68,6 @@ public class AdmAyudaListView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("AYUDA");
-
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Jhon\\Documents\\NetBeansProjects\\ProyectoFinalMulti\\src\\Logo MicroEmpresa Mediano.png")); // NOI18N
 
         jLabel4.setText("Descripcion de la empresa y el programa");
 
@@ -75,6 +89,31 @@ public class AdmAyudaListView extends javax.swing.JFrame {
 
         jLabel12.setText("Descripcion de la empresa y el programa");
 
+        JBPrincipal4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBPrincipal4.setText("INICIO");
+
+        JBEmpleado4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBEmpleado4.setText("EMPLEADO");
+
+        JBInventario4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBInventario4.setText("INVENTARIO");
+        JBInventario4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBInventario4ActionPerformed(evt);
+            }
+        });
+
+        JBFactura4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBFactura4.setText("FACTURA");
+        JBFactura4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFactura4ActionPerformed(evt);
+            }
+        });
+
+        JBAyuda4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBAyuda4.setText("AYUDA");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,8 +131,9 @@ public class AdmAyudaListView extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(11, 11, 11)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -101,16 +141,30 @@ public class AdmAyudaListView extends javax.swing.JFrame {
                                 .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)))))
                 .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(41, 41, 41)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(383, Short.MAX_VALUE)))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JBPrincipal4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBEmpleado4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBInventario4, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBFactura4, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBAyuda4, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JBFactura4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBPrincipal4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JBEmpleado4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBAyuda4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBInventario4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel5)
@@ -118,47 +172,25 @@ public class AdmAyudaListView extends javax.swing.JFrame {
                         .addComponent(jLabel8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel10)
-                        .addContainerGap(42, Short.MAX_VALUE))
+                        .addContainerGap(40, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7))
                         .addGap(18, 18, 18))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(91, 91, 91)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(202, Short.MAX_VALUE)))
         );
-
-        jMenu6.setText("INICIO");
-        jMenuBar2.add(jMenu6);
-
-        jMenu7.setText("NOMINA");
-        jMenuBar2.add(jMenu7);
-
-        jMenu8.setText("INVENTARIO");
-        jMenuBar2.add(jMenu8);
-
-        jMenu9.setText("VENTAS");
-        jMenuBar2.add(jMenu9);
-
-        jMenu10.setText("ORDENES");
-        jMenuBar2.add(jMenu10);
-
-        jMenu11.setText("AYUDA");
-        jMenuBar2.add(jMenu11);
-
-        setJMenuBar(jMenuBar2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,6 +205,14 @@ public class AdmAyudaListView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void JBInventario4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBInventario4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBInventario4ActionPerformed
+
+    private void JBFactura4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFactura4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBFactura4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,6 +257,11 @@ public class AdmAyudaListView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBAyuda4;
+    private javax.swing.JButton JBEmpleado4;
+    private javax.swing.JButton JBFactura4;
+    private javax.swing.JButton JBInventario4;
+    private javax.swing.JButton JBPrincipal4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -227,13 +272,6 @@ public class AdmAyudaListView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    public static javax.swing.JMenu jMenu10;
-    public static javax.swing.JMenu jMenu11;
-    public static javax.swing.JMenu jMenu6;
-    public static javax.swing.JMenu jMenu7;
-    public static javax.swing.JMenu jMenu8;
-    public static javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

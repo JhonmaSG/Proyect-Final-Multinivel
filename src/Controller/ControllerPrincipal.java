@@ -8,7 +8,7 @@ import View.AdmAyudaListView;
 import View.AdmEmpleadoListView;
 import View.AdmInventarioListView;
 import View.AdmPrincipalListView;
-import View.AdmVentasListView;
+import View.AdmFacturaListView;
 import java.awt.event.ActionEvent;
 
 /**
@@ -19,35 +19,36 @@ public class ControllerPrincipal {
     private AdmPrincipalListView principalView;
     private AdmInventarioListView inventarioView;
     private AdmEmpleadoListView empleadoView;
-    private AdmVentasListView ventasView;
+    private AdmFacturaListView facturaView;
     private AdmAyudaListView ayudaView;
 
-    public ControllerPrincipal(AdmPrincipalListView principalView, AdmInventarioListView inventarioView, AdmEmpleadoListView empleadoView, AdmVentasListView ventasView, AdmAyudaListView ayudaView) {
+    public ControllerPrincipal(AdmPrincipalListView principalView, AdmEmpleadoListView empleadoView
+            , AdmInventarioListView inventarioView , AdmFacturaListView facturaView, AdmAyudaListView ayudaView) {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
-        this.ventasView = ventasView;
+        this.facturaView = facturaView;
         this.ayudaView = ayudaView;
         
         principalView.setVisible(true);
         
-        //IMVENTARIO
-        principalView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        //INVENTARIO
+        principalView.cambiarEmpleado( (ActionEvent e) -> {
             principalView.setVisible(false);
             inventarioView.setVisible(true);
         });
         //EMPLEADO
-        principalView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        principalView.cambiarInventario( (ActionEvent e) -> {
             principalView.setVisible(false);
             empleadoView.setVisible(true);
         });
         //VENTAS-FACTURA
-        principalView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        principalView.cambiarFactura( (ActionEvent e) -> {
             principalView.setVisible(false);
-            ventasView.setVisible(true);
+            facturaView.setVisible(true);
         });
         //AYUDA
-        principalView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        principalView.cambiarAyuda( (ActionEvent e) -> {
             principalView.setVisible(false);
             ayudaView.setVisible(true);
         });

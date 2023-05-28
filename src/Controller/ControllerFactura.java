@@ -9,51 +9,54 @@ import View.AdmAyudaListView;
 import View.AdmEmpleadoListView;
 import View.AdmInventarioListView;
 import View.AdmPrincipalListView;
-import View.AdmVentasListView;
+import View.AdmFacturaListView;
 import java.awt.event.ActionEvent;
 
 /**
  *
  * @author Jhon
  */
-public class ControllerVentas {
+public class ControllerFactura {
     private AdmPrincipalListView principalView;
     private AdmInventarioListView inventarioView;
     private AdmEmpleadoListView empleadoView;
-    private AdmVentasListView ventasView;
+    private AdmFacturaListView facturaView;
     private AdmAyudaListView ayudaView;
     
     //Model
     private Factura facturaModel;
 
-    public ControllerVentas(AdmPrincipalListView principalView, AdmInventarioListView inventarioView, AdmEmpleadoListView empleadoView, AdmVentasListView ventasView, AdmAyudaListView ayudaView, Factura facturaModel) {
+    public ControllerFactura(AdmPrincipalListView principalView, AdmEmpleadoListView empleadoView,
+            AdmInventarioListView inventarioView,AdmFacturaListView facturaView, AdmAyudaListView ayudaView, Factura facturaModel) {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
-        this.ventasView = ventasView;
+        this.facturaView = facturaView;
         this.ayudaView = ayudaView;
         
         //Model
         this.facturaModel = facturaModel;
         
+        //facturaView.setVisible(true);
+        
         //PRINCIPAL
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
+        facturaView.cambiarPrincipal( (ActionEvent e) -> {
+            facturaView.setVisible(false);
             principalView.setVisible(true);
         });
         //INVENTARIO
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
-            ventasView.setVisible(true);
+        facturaView.cambiarInventario( (ActionEvent e) -> {
+            facturaView.setVisible(false);
+            inventarioView.setVisible(true);
         });
         //EMPLEADO
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
+        facturaView.cambiarEmpleado( (ActionEvent e) -> {
+            facturaView.setVisible(false);
             empleadoView.setVisible(true);
         });
         //AYUDA
-        inventarioView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            inventarioView.setVisible(false);
+        facturaView.cambiarAyuda( (ActionEvent e) -> {
+            facturaView.setVisible(false);
             ayudaView.setVisible(true);
         });
         

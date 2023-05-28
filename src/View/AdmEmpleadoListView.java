@@ -20,7 +20,8 @@ DefaultTableModel modelTable = new DefaultTableModel();
      */
     public AdmEmpleadoListView() {
         initComponents();
-        
+        this.setLocationRelativeTo(null);
+        this. setTitle("EMPLEADOS");
         this.JTableEmp.setModel(modelTable);
         
         modelTable.addColumn("Id");
@@ -61,7 +62,22 @@ DefaultTableModel modelTable = new DefaultTableModel();
     public int getSelectedClient(){
         return this.JTableEmp.getSelectedRow();
     }
-
+    
+    public void cambiarPrincipal(ActionListener listener){
+        JBPrincipal1.addActionListener(listener);
+    }
+    public void cambiarEmpleado(ActionListener listener){
+        JBEmpleado1.addActionListener(listener);
+    }
+    public void cambiarInventario(ActionListener listener){
+        JBInventario1.addActionListener(listener);
+    }
+    public void cambiarFactura(ActionListener listener){
+        JBFactura1.addActionListener(listener);
+    }
+    public void cambiarAyuda(ActionListener listener){
+        JBAyuda1.addActionListener(listener);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +89,11 @@ DefaultTableModel modelTable = new DefaultTableModel();
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        JBPrincipal = new javax.swing.JButton();
+        JBEmpleado = new javax.swing.JButton();
+        JBInventario = new javax.swing.JButton();
+        JBFacturas = new javax.swing.JButton();
+        JBAyuda = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -81,12 +102,11 @@ DefaultTableModel modelTable = new DefaultTableModel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        JBPrincipal1 = new javax.swing.JButton();
+        JBEmpleado1 = new javax.swing.JButton();
+        JBInventario1 = new javax.swing.JButton();
+        JBFactura1 = new javax.swing.JButton();
+        JBAyuda1 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,7 +121,34 @@ DefaultTableModel modelTable = new DefaultTableModel();
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        JBPrincipal.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBPrincipal.setText("INICIO");
+
+        JBEmpleado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBEmpleado.setText("EMPLEADO");
+
+        JBInventario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBInventario.setText("INVENTARIO");
+        JBInventario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBInventarioActionPerformed(evt);
+            }
+        });
+
+        JBFacturas.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBFacturas.setText("FACTURA");
+        JBFacturas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFacturasActionPerformed(evt);
+            }
+        });
+
+        JBAyuda.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBAyuda.setText("AYUDA");
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(687, 411));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 153, 255));
@@ -156,30 +203,78 @@ DefaultTableModel modelTable = new DefaultTableModel();
             }
         });
 
+        JBPrincipal1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBPrincipal1.setText("INICIO");
+
+        JBEmpleado1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBEmpleado1.setText("EMPLEADO");
+        JBEmpleado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBEmpleado1ActionPerformed(evt);
+            }
+        });
+
+        JBInventario1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBInventario1.setText("INVENTARIO");
+        JBInventario1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBInventario1ActionPerformed(evt);
+            }
+        });
+
+        JBFactura1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBFactura1.setText("FACTURA");
+        JBFactura1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JBFactura1ActionPerformed(evt);
+            }
+        });
+
+        JBAyuda1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBAyuda1.setText("AYUDA");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(JBPrincipal1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBEmpleado1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBInventario1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBFactura1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(JBAyuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4)
-                            .addGap(45, 45, 45)
-                            .addComponent(jButton2)
-                            .addGap(51, 51, 51)
-                            .addComponent(jButton3))
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(36, 36, 36)
+                        .addComponent(jButton4)
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton2)
+                        .addGap(51, 51, 51)
+                        .addComponent(jButton3)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JBFactura1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBPrincipal1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(JBEmpleado1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBAyuda1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JBInventario1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -189,31 +284,14 @@ DefaultTableModel modelTable = new DefaultTableModel();
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
-
-        jMenu1.setText("INICIO");
-        jMenuBar1.add(jMenu1);
-
-        jMenu6.setText("NOMINA");
-        jMenuBar1.add(jMenu6);
-
-        jMenu2.setText("INVENTARIO");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("VENTAS");
-        jMenuBar1.add(jMenu3);
-
-        jMenu5.setText("AYUDA");
-        jMenuBar1.add(jMenu5);
-
-        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,6 +316,26 @@ DefaultTableModel modelTable = new DefaultTableModel();
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void JBInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBInventarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBInventarioActionPerformed
+
+    private void JBFacturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFacturasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBFacturasActionPerformed
+
+    private void JBInventario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBInventario1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBInventario1ActionPerformed
+
+    private void JBFactura1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBFactura1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBFactura1ActionPerformed
+
+    private void JBEmpleado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEmpleado1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JBEmpleado1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -306,18 +404,22 @@ DefaultTableModel modelTable = new DefaultTableModel();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBAyuda;
+    private javax.swing.JButton JBAyuda1;
+    private javax.swing.JButton JBEmpleado;
+    private javax.swing.JButton JBEmpleado1;
+    private javax.swing.JButton JBFactura1;
+    private javax.swing.JButton JBFacturas;
+    private javax.swing.JButton JBInventario;
+    private javax.swing.JButton JBInventario1;
+    private javax.swing.JButton JBPrincipal;
+    private javax.swing.JButton JBPrincipal1;
     private javax.swing.JTable JTableEmp;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    public static javax.swing.JMenu jMenu1;
-    public static javax.swing.JMenu jMenu2;
-    public static javax.swing.JMenu jMenu3;
-    public static javax.swing.JMenu jMenu5;
-    public static javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;

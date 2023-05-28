@@ -8,7 +8,7 @@ import View.AdmAyudaListView;
 import View.AdmEmpleadoListView;
 import View.AdmInventarioListView;
 import View.AdmPrincipalListView;
-import View.AdmVentasListView;
+import View.AdmFacturaListView;
 import java.awt.event.ActionEvent;
 
 /**
@@ -19,38 +19,38 @@ public class ControllerAyuda {
     private AdmPrincipalListView principalView;
     private AdmInventarioListView inventarioView;
     private AdmEmpleadoListView empleadoView;
-    private AdmVentasListView ventasView;
+    private AdmFacturaListView facturaView;
     private AdmAyudaListView ayudaView;
 
-    public ControllerAyuda(AdmPrincipalListView principalView, AdmInventarioListView inventarioView, AdmEmpleadoListView empleadoView, AdmVentasListView ventasView, AdmAyudaListView ayudaView) {
+    public ControllerAyuda(AdmPrincipalListView principalView, AdmEmpleadoListView empleadoView,
+            AdmInventarioListView inventarioView, AdmFacturaListView facturaView, AdmAyudaListView ayudaView) {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
-        this.ventasView = ventasView;
+        this.facturaView = facturaView;
         this.ayudaView = ayudaView;
         
-        ayudaView.setVisible(true);
+        //ayudaView.setVisible(true);
         
         //PRINCIPAL
-        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        ayudaView.cambiarPrincipal( (ActionEvent e) -> {
             ayudaView.setVisible(false);
             principalView.setVisible(true);
         });
-        //IMVENTARIO
-        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
-            ayudaView.setVisible(false);
-            inventarioView.setVisible(true);
-        });
-        
         //EMPLEADO
-        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        ayudaView.cambiarEmpleado((ActionEvent e) -> {
             ayudaView.setVisible(false);
             empleadoView.setVisible(true);
         });
-        //VENTAS-FACTURA
-        ayudaView.JMenuInicioMouseClicked( (ActionEvent e) -> {
+        //INVENTARIO
+        ayudaView.cambiarInventario( (ActionEvent e) -> {
             ayudaView.setVisible(false);
-            ventasView.setVisible(true);
+            inventarioView.setVisible(true);
+        });
+        //VENTAS-FACTURA
+        ayudaView.cambiarFactura( (ActionEvent e) -> {
+            ayudaView.setVisible(false);
+            facturaView.setVisible(true);
         });
         
     } 

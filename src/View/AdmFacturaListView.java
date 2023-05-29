@@ -110,7 +110,7 @@ public class AdmFacturaListView extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 153, 255));
-        jLabel1.setText("VENTAS REALIZADAS");
+        jLabel1.setText("FACTURAS");
 
         jButton1.setBackground(new java.awt.Color(102, 255, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N

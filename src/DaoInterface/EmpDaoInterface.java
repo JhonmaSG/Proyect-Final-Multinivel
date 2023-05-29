@@ -4,18 +4,19 @@
  */
 package DaoInterface;
 
+import Model.Empleado;
+import Model.ModelEmpleado;
 import java.util.ArrayList;
 
 /**
  *
  * @author Jhon
  */
-public class EmpDaoInterface {
-    /*
-    public void update(ClientsModel model);
-    public void create(ClientsModel model);
+public interface EmpDaoInterface {
+    public void update(Empleado model);
+    public void create(Empleado model);
     public void deleteById(int id);
-    public ClientsModel findById(int id);
-    public ArrayList<ClientsModel> findAll();
-    */
+    public Empleado findById(int id);
+    public ArrayList<Empleado> findAll();
+    
 }

@@ -134,7 +134,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="99" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="VENTAS REALIZADAS"/>
+            <Property name="text" type="java.lang.String" value="FACTURAS"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

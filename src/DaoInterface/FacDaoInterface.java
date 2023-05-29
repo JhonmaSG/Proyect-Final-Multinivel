@@ -4,16 +4,17 @@
  */
 package DaoInterface;
 
+import Model.Factura;
 import java.util.ArrayList;
 
 /**
  *
  * @author Jhon
  */
-public class FacDaoInterface {
-//    public void update(ClientsModel model);
-//    public void create(ClientsModel model);
-//    public void deleteById(int id);
-//    public ClientsModel findById(int id);
-//    public ArrayList<ClientsModel> findAll();
+public interface FacDaoInterface {
+    public void update(Factura model);
+    public void create(Factura model);
+    public void deleteById(int id);
+    public Factura findById(int id);
+    public ArrayList<Factura> findAll();
 }

@@ -43,7 +43,7 @@ public class ControllerEmpleado {
             empleadoView.setVisible(false);
             principalView.setVisible(true);
         });
-        //IMVENTARIO
+        //INVENTARIO
         empleadoView.cambiarInventario( (ActionEvent e) -> {
             empleadoView.setVisible(false);
             inventarioView.setVisible(true);

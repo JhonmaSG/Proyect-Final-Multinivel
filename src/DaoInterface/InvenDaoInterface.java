@@ -3,17 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package DaoInterface;
-
+import Model.Inventario;
 import java.util.ArrayList;
 
 /**
  *
  * @author Jhon
  */
-public class InvenDaoInterface {
-//    public void update(ClientsModel model);
-//    public void create(ClientsModel model);
-//    public void deleteById(int id);
-//    public ClientsModel findById(int id);
-//    public ArrayList<ClientsModel> findAll();
+public interface InvenDaoInterface {
+    public void update(Inventario model);
+    public void create(Inventario model);
+    public void deleteById(int id);
+    public Inventario findById(int id);
+    public ArrayList<Inventario> findAll();
 }

@@ -33,12 +33,12 @@ public class ControllerPrincipal {
         principalView.setVisible(true);
         
         //INVENTARIO
-        principalView.cambiarEmpleado( (ActionEvent e) -> {
+        principalView.cambiarInventario( (ActionEvent e) -> {
             principalView.setVisible(false);
             inventarioView.setVisible(true);
         });
         //EMPLEADO
-        principalView.cambiarInventario( (ActionEvent e) -> {
+        principalView.cambiarEmpleado( (ActionEvent e) -> {
             principalView.setVisible(false);
             empleadoView.setVisible(true);
         });

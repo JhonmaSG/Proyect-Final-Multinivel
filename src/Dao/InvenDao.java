@@ -93,7 +93,7 @@ public class InvenDao implements InvenDaoInterface{
     }
     
     @Override
-    public Empleado findById(int id) {
+    public Inventario findById(int id) {
         String sql = "SELECT * FROM INVENTARIO WHERE Cod_Mp = ?";
         Inventario model = null;
          

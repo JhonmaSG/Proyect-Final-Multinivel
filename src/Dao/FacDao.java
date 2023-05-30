@@ -35,11 +35,12 @@ public class FacDao implements FacDaoInterface{
             PreparedStatement statement;
             statement = connector.getConnection().prepareStatement(sql);
             
-            statement.setString(1, modelUpdate.getNombre_Mp());
-            statement.setString(2, modelUpdate.getDescrip_Mp());
-            statement.setString(3, modelUpdate.getCant_Exist_Mp());
+            statement.setString(1, modelUpdate.getFecha_Hora_Fv());
+            statement.setString(2, modelUpdate.getMetodo_Fv());
+            statement.setString(3, modelUpdate.getDescrip_Fv());
+            statement.setString(4, modelUpdate.getTotal_Pagar_Fv());
             
-            statement.setString(9, modelUpdate.getId() + "");
+            statement.setString(5, modelUpdate.getId() + "");
                     
             statement.executeUpdate();
             
@@ -94,7 +95,7 @@ public class FacDao implements FacDaoInterface{
     }
     
     @Override
-    public Empleado findById(int id) {
+    public Factura findById(int id) {
         String sql = "SELECT * FROM FACTURA WHERE Cod_Mp = ?";
         Factura model = null;
          
@@ -111,6 +112,7 @@ public class FacDao implements FacDaoInterface{
                 model = new Factura(
                    resultSet.getInt("Id Factura"),
                    resultSet.getString("Fecha Factura"),
+                   resultSet.getString("Descripcion Factura"),
                    resultSet.getString("Metodo De Pago"),
                    resultSet.getString("Total Pagar"),
               
@@ -141,6 +143,7 @@ public class FacDao implements FacDaoInterface{
                 Factura model = new Factura(
                    resultSet.getInt("Id Factura"),
                    resultSet.getString("Fecha Factura"),
+                   resultSet.getString("Descripcion Factura"),
                    resultSet.getString("Metodo De Pago"),
                    resultSet.getString("Total Pagar")
                 );

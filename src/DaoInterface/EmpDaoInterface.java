@@ -5,7 +5,6 @@
 package DaoInterface;
 
 import Model.Empleado;
-import Model.ModelEmpleado;
 import java.util.ArrayList;
 
 /**

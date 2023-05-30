@@ -8,37 +8,38 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ConnectorDB {
+public class Connector {
     
-    String bd = "";
+    String bd = "confeccion";
     String url = "jdbc:mysql://localhost:3306/";
     String user = "root";
     String password = "";    
     String driver  = "com.mysql.cj.jdbc.Driver";
     
-    Connection cx;
-
-    public ConnectorDB(String bd){
+    Connection conexion;
+    /*
+    public Connector(String bd){
         this.bd = bd;
     }
+    */
 
     public Connection conectar(){
         try {
             Class.forName(driver);
-            cx = DriverManager.getConnection(url + bd, user, password);
+            conexion = DriverManager.getConnection(url + bd, user, password);
             System.out.println("Conexion exitosa con la bd " + bd);
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("No se Conecto a la BD, error: " + ex.getMessage());   
-            Logger.getLogger(ConnectorDB.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return cx;
+        return conexion;
     }
     
     public void desconectar(){
         try {
-            if( cx != null ){
+            if( conexion != null ){
                 System.out.println("Se cerro la conexion");
-                cx.close();
+                conexion.close();
             }
         } catch (SQLException ex){
             //Logger.getLogger(ConnectorDB.class.getName()).log(Level.SEVERE, null, ex);
@@ -46,5 +47,8 @@ public class ConnectorDB {
         }
     }
     
+    public Connection getConnection() {
+        return conexion;
+    }
 }
 

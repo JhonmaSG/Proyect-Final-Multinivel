@@ -6,7 +6,7 @@ package Dao;
 
 import DaoInterface.EmpDaoInterface;
 import Model.Empleado;
-import com.sun.jdi.connect.Connector;
+import database.Connector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,7 +21,7 @@ public class EmpDao implements EmpDaoInterface{
     Connector connector = null;
     
     public EmpDao(){
-        this.connector = new Connector();
+        this.connector = new Connector() {};
     }
     
     @Override

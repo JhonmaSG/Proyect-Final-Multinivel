@@ -7,25 +7,23 @@ package Dao;
 
 import DaoInterface.FacDaoInterface;
 import Model.Factura;
-import com.sun.jdi.connect.Connector;
-import com.sun.jdi.connect.Transport;
-import database.MySqlConnection;
+import database.Connector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Map;
+
 
 /**
  *
  * @author Jhon
  */
 public class FacDao implements FacDaoInterface {
-    MySqlConnection connection = new MySqlConnection();
+     Connector connector = null;
     
     public FacDao(){
-        this.connection = (MySqlConnection) new database.Connector();
+       this.connector = new Connector();
     }
     
     @Override
@@ -36,7 +34,7 @@ public class FacDao implements FacDaoInterface {
             Factura modelUpdate = (Factura) facturaModel;
             
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getFecha_Hora_Fv());
             statement.setString(2, modelUpdate.getMetodo_Fv());
@@ -48,7 +46,7 @@ public class FacDao implements FacDaoInterface {
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -62,7 +60,7 @@ public class FacDao implements FacDaoInterface {
             Factura modelUpdate = (Factura) facturaModel;
             
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getFecha_Hora_Fv());
             statement.setString(2, modelUpdate.getMetodo_Fv());
@@ -72,7 +70,7 @@ public class FacDao implements FacDaoInterface {
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -84,13 +82,13 @@ public class FacDao implements FacDaoInterface {
         
         try{            
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);            
+            statement = connector.getConnection().prepareStatement(sql);            
             statement.setString(1, id + "");
 
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -104,7 +102,7 @@ public class FacDao implements FacDaoInterface {
          
         try{
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             ResultSet resultSet;
             
             statement.setInt(1, id);
@@ -123,7 +121,7 @@ public class FacDao implements FacDaoInterface {
             
             resultSet.close();
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -138,7 +136,7 @@ public class FacDao implements FacDaoInterface {
         try {
             Statement statement;
        
-            statement = connection.getConnection().createStatement();
+            statement = connector.getConnection().createStatement();
             ResultSet resultSet;
             resultSet = statement.executeQuery(sql);
         
@@ -155,7 +153,7 @@ public class FacDao implements FacDaoInterface {
             
             resultSet.close();
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }

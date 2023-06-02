@@ -6,7 +6,7 @@ package Dao;
 
 import DaoInterface.InvenDaoInterface;
 import Model.Inventario;
-import database.MySqlConnection;
+import database.Connector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,10 +18,10 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class InvenDao implements InvenDaoInterface {
-    MySqlConnection connection = new MySqlConnection();
+     Connector connector = null;
     
     public InvenDao(){
-        this.connection = (MySqlConnection) new database.Connector();
+        this.connector = new Connector();
     }
     
     @Override
@@ -32,7 +32,7 @@ public class InvenDao implements InvenDaoInterface {
             Inventario modelUpdate = (Inventario) inventarioModel;
             
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getNombre_Mp());
             statement.setString(2, modelUpdate.getDescrip_Mp());
@@ -43,7 +43,7 @@ public class InvenDao implements InvenDaoInterface {
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -57,7 +57,7 @@ public class InvenDao implements InvenDaoInterface {
             Inventario modelUpdate = (Inventario) inventarioModel;
             
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getNombre_Mp());
             statement.setString(2, modelUpdate.getDescrip_Mp());
@@ -66,7 +66,7 @@ public class InvenDao implements InvenDaoInterface {
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -78,13 +78,13 @@ public class InvenDao implements InvenDaoInterface {
         
         try{            
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);            
+            statement = connector.getConnection().prepareStatement(sql);            
             statement.setString(1, id + "");
 
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -98,7 +98,7 @@ public class InvenDao implements InvenDaoInterface {
          
         try{
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             ResultSet resultSet;
             
             statement.setInt(1, id);
@@ -107,16 +107,16 @@ public class InvenDao implements InvenDaoInterface {
             
             if (resultSet.next()){
                 model = new Inventario(
-                   resultSet.getInt("Id Material"),
-                   resultSet.getString("Nombre Material"),
-                   resultSet.getString("Descripcion Material"),
-                   resultSet.getString("Cantidad Existente"));
+                   resultSet.getInt("Cod_Mp"),
+                   resultSet.getString("Nombre_Mp"),
+                   resultSet.getString("Descrip_Mp"),
+                   resultSet.getString("Cant_Exist_Mp"));
               
             }
             
             resultSet.close();
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }
@@ -131,23 +131,23 @@ public class InvenDao implements InvenDaoInterface {
         try {
             Statement statement;
        
-            statement = connection.getConnection().createStatement();
+            statement = connector.getConnection().createStatement();
             ResultSet resultSet;
             resultSet = statement.executeQuery(sql);
         
             while (resultSet.next()) {
                 Inventario model = new Inventario(
-                   resultSet.getInt("Id Material"),
-                   resultSet.getString("Nombre Material"),
-                   resultSet.getString("Descripcion Material"),
-                   resultSet.getString("Cantidad Existente")
+                   resultSet.getInt("Cod_Mp"),
+                   resultSet.getString("Nombre_Mp"),
+                   resultSet.getString("Descrip_Mp"),
+                   resultSet.getString("Cant_Exist_Mp")
                 );
                 lista.add(model);
             }
             
             resultSet.close();
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error" + ex.getMessage());
         }

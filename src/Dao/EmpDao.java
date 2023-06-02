@@ -8,7 +8,6 @@ import DaoInterface.EmpDaoInterface;
 import Model.Empleado;
 import com.sun.jdi.connect.spi.Connection;
 import database.Connector;
-import database.MySqlConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,11 +19,10 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class EmpDao implements EmpDaoInterface{
-    MySqlConnection connection = new MySqlConnection();
-    //Connection dbConnection = (Connection) connection.getConnection();
+    Connector connector = null;
     
     public EmpDao(){
-        this.connection = (MySqlConnection) new Connector();
+        this.connector = new Connector();
     }
     
     @Override
@@ -36,7 +34,7 @@ public class EmpDao implements EmpDaoInterface{
             Empleado modelUpdate = (Empleado) empleadoModel;
             
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getNombre_Em());
             statement.setString(2, modelUpdate.getApellido_Em());
@@ -52,7 +50,7 @@ public class EmpDao implements EmpDaoInterface{
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error update" + ex.getMessage());
         }
@@ -67,7 +65,7 @@ public class EmpDao implements EmpDaoInterface{
             Empleado modelUpdate = (Empleado) empleadoModel;
             
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getNombre_Em());
             statement.setString(2, modelUpdate.getApellido_Em());
@@ -81,7 +79,7 @@ public class EmpDao implements EmpDaoInterface{
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error create" + ex.getMessage());
         }
@@ -93,13 +91,13 @@ public class EmpDao implements EmpDaoInterface{
         
         try{            
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);            
+            statement = connector.getConnection().prepareStatement(sql);            
             statement.setString(1, id + "");
 
             statement.executeUpdate();
             
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(Exception ex){
             System.out.println("Error deleteById" + ex.getMessage());
         }
@@ -112,7 +110,7 @@ public class EmpDao implements EmpDaoInterface{
          
         try{
             PreparedStatement statement;
-            statement = connection.getConnection().prepareStatement(sql);
+            statement = connector.getConnection().prepareStatement(sql);
             ResultSet resultSet;
             
             statement.setInt(1, id);
@@ -133,7 +131,7 @@ public class EmpDao implements EmpDaoInterface{
             
             resultSet.close();
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
         } catch(SQLException ex){
             System.out.println("Error findAll" + ex.getMessage());
         }
@@ -148,7 +146,7 @@ public class EmpDao implements EmpDaoInterface{
         try {
             Statement statement;
        
-            statement = connection.getConnection().createStatement();
+            statement = connector.getConnection().createStatement();
             ResultSet resultSet;
             resultSet = statement.executeQuery(sql);
         
@@ -169,7 +167,7 @@ public class EmpDao implements EmpDaoInterface{
             
             resultSet.close();
             statement.close();
-            connection.getConnection().close();
+            connector.getConnection().close();
             System.out.println("Conexion realizada FindAll");
         } catch(SQLException ex){
             System.out.println("Error5 " + ex.getMessage());

@@ -6,7 +6,6 @@ package Dao;
 
 import DaoInterface.EmpDaoInterface;
 import Model.Empleado;
-import com.sun.jdi.connect.spi.Connection;
 import database.Connector;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -175,4 +174,5 @@ public class EmpDao implements EmpDaoInterface{
         
         return lista;
     }
+    
 }

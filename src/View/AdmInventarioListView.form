@@ -77,7 +77,7 @@
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Component id="JButtonEliMat" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                          <Component id="JButtonExportar" min="-2" max="-2" attributes="0"/>
+                          <Component id="JBExportarInven" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -123,7 +123,7 @@
                       <Component id="JButtonAddMat" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="JButtonModMat" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="JButtonEliMat" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="JButtonExportar" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                      <Component id="JBExportarInven" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
@@ -218,7 +218,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonEliMatActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="JButtonExportar">
+        <Component class="javax.swing.JButton" name="JBExportarInven">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="ff" type="rgb"/>
@@ -229,7 +229,7 @@
             <Property name="text" type="java.lang.String" value="Exportar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JButtonExportarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JBExportarInvenActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="JButtonModMat">

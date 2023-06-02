@@ -6,7 +6,14 @@ package View;
 
 import Model.Factura;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,8 +53,27 @@ public class AdmFacturaListView extends javax.swing.JFrame {
             modelTable.addRow(data);
         }
     }
-    public void deleteClientActionListener(ActionListener listener) {
-        //this.btnEliminar.addActionListener(listener);
+    
+    void borrarArch() {
+        String filePath = "C:\\Users\\Jhon\\Documents\\NetBeansProjects\\ProyectoFinalMulti\\FACTURA.csv";
+        File archivoCSV = new File(filePath);
+        archivoCSV.delete();
+    }
+    
+    private void generarReporteEmp() throws IOException {
+        BufferedWriter fichero = new BufferedWriter(new FileWriter("FACTURA.csv", true));
+        try {
+            for(int i=0; i< modelTable.getRowCount(); i++) {
+                for(int j=0; j < modelTable.getColumnCount(); j++) {
+                    fichero.write(modelTable.getValueAt(i,j).toString()+",");
+                }
+                fichero.write("\n");
+            }
+            fichero.close();
+            JOptionPane.showMessageDialog(null, "Guardado Correctamente");
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Guardado Erroneo");
+        }
     }
     
     public int getSelectedClient(){
@@ -85,7 +111,7 @@ public class AdmFacturaListView extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JTableVenta = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        JBExportarFac = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         JBPrincipal3 = new javax.swing.JButton();
         JBEmpleado3 = new javax.swing.JButton();
@@ -143,12 +169,12 @@ public class AdmFacturaListView extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setText("Exportar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JBExportarFac.setBackground(new java.awt.Color(255, 204, 0));
+        JBExportarFac.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBExportarFac.setText("Exportar");
+        JBExportarFac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JBExportarFacActionPerformed(evt);
             }
         });
 
@@ -200,7 +226,7 @@ public class AdmFacturaListView extends javax.swing.JFrame {
                         .addGap(41, 41, 41)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(51, 51, 51)
-                        .addComponent(jButton3))
+                        .addComponent(JBExportarFac))
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -239,7 +265,7 @@ public class AdmFacturaListView extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBExportarFac, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -265,9 +291,14 @@ public class AdmFacturaListView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void JBExportarFacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExportarFacActionPerformed
+        try {
+            borrarArch();
+            generarReporteEmp();
+        } catch (IOException ex) {
+            Logger.getLogger(AdmFacturaListView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JBExportarFacActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -350,13 +381,13 @@ public class AdmFacturaListView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAyuda3;
     private javax.swing.JButton JBEmpleado3;
+    private javax.swing.JButton JBExportarFac;
     private javax.swing.JButton JBFactura3;
     private javax.swing.JButton JBInventario3;
     private javax.swing.JButton JBPrincipal3;
     private javax.swing.JTable JTableVenta;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

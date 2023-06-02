@@ -13,6 +13,7 @@ import Model.Empleado;
 import Model.Factura;
 import Model.Inventario;
 import View.AdmAyudaListView;
+import View.AdmEmpleadoDataView;
 import View.AdmEmpleadoListView;
 import View.AdmFacturaListView;
 import View.AdmInventarioListView;
@@ -30,6 +31,7 @@ public class Main {
         AdmInventarioListView inventarioView = new AdmInventarioListView();
         AdmFacturaListView facturaView = new AdmFacturaListView();
         AdmAyudaListView ayudaView = new AdmAyudaListView();
+        AdmEmpleadoDataView agregarView = new AdmEmpleadoDataView();
         
         Empleado  empleadoModel = null;
         Inventario  inventarioModel = null;
@@ -40,7 +42,7 @@ public class Main {
                     facturaView, ayudaView);
         ControllerEmpleado empleadoController = new ControllerEmpleado(
                     principalView, empleadoView, inventarioView,
-                    facturaView, ayudaView, empleadoModel);
+                    facturaView, ayudaView, agregarView, empleadoModel);
         ControllerInventario inventarioController = new ControllerInventario(
                     principalView, empleadoView, inventarioView,
                     facturaView, ayudaView, inventarioModel);

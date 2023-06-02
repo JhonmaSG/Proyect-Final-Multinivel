@@ -7,6 +7,7 @@ package Controller;
 import Dao.EmpDao;
 import Model.Empleado;
 import View.AdmAyudaListView;
+import View.AdmEmpleadoDataView;
 import View.AdmInventarioListView;
 import View.AdmEmpleadoListView;
 import View.AdmPrincipalListView;
@@ -14,6 +15,7 @@ import View.AdmFacturaListView;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.ArrayList;
+
 
 /**
  *
@@ -26,6 +28,8 @@ public class ControllerEmpleado {
     private AdmFacturaListView facturaView;
     private AdmAyudaListView ayudaView;
     
+    private AdmEmpleadoDataView agregarView;
+    
     //Model
     private Empleado empleadoModel; 
     //Dao
@@ -33,18 +37,19 @@ public class ControllerEmpleado {
 
     public ControllerEmpleado(AdmPrincipalListView principalView, AdmEmpleadoListView empleadoView,
             AdmInventarioListView inventarioView, AdmFacturaListView facturaView, AdmAyudaListView ayudaView,
-            Empleado empleadoModel) throws SQLException {
+            AdmEmpleadoDataView agregarView, Empleado empleadoModel) throws SQLException {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
         this.facturaView = facturaView;
         this.ayudaView = ayudaView;
+        this.agregarView = agregarView;
         this.empleadoModel = empleadoModel;
         
         this.dao = new EmpDao();
         //empleadoView.setVisible(true);
         mostrarDatos();
-        
+        //VENTANAS DE FRAME
         //PRINCIPAL
         empleadoView.cambiarPrincipal( (ActionEvent e) -> {
             empleadoView.setVisible(false);
@@ -64,6 +69,11 @@ public class ControllerEmpleado {
         empleadoView.cambiarAyuda( (ActionEvent e) -> {
             empleadoView.setVisible(false);
             ayudaView.setVisible(true);
+        });
+        //BOTONES
+        //AGREGAR
+        empleadoView.agregar( (ActionEvent e) -> {
+            agregarView.setVisible(true);
         });
         }
     

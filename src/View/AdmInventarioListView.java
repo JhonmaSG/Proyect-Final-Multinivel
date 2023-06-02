@@ -6,7 +6,14 @@ package View;
 
 import Model.Inventario;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -45,8 +52,26 @@ public class AdmInventarioListView extends javax.swing.JFrame {
             modelTable.addRow(data);
         }
     }
-    public void deleteClientActionListener(ActionListener listener) {
-        //this.btnEliminar.addActionListener(listener);
+    void borrarArch() {
+        String filePath = "C:\\Users\\Jhon\\Documents\\NetBeansProjects\\ProyectoFinalMulti\\INVENTARIO.csv";
+        File archivoCSV = new File(filePath);
+        archivoCSV.delete();
+    }
+    
+    private void generarReporteEmp() throws IOException {
+        BufferedWriter fichero = new BufferedWriter(new FileWriter("INVENTARIO.csv", true));
+        try {
+            for(int i=0; i< modelTable.getRowCount(); i++) {
+                for(int j=0; j < modelTable.getColumnCount(); j++) {
+                    fichero.write(modelTable.getValueAt(i,j).toString()+",");
+                }
+                fichero.write("\n");
+            }
+            fichero.close();
+            JOptionPane.showMessageDialog(null, "Guardado Correctamente");
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Guardado Erroneo");
+        }
     }
     
     public int getSelectedClient(){
@@ -85,7 +110,7 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         JTableInven = new javax.swing.JTable();
         JButtonEliMat = new javax.swing.JButton();
-        JButtonExportar = new javax.swing.JButton();
+        JBExportarInven = new javax.swing.JButton();
         JButtonModMat = new javax.swing.JButton();
         JBPrincipal2 = new javax.swing.JButton();
         JBEmpleado2 = new javax.swing.JButton();
@@ -145,12 +170,12 @@ public class AdmInventarioListView extends javax.swing.JFrame {
             }
         });
 
-        JButtonExportar.setBackground(new java.awt.Color(255, 204, 0));
-        JButtonExportar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        JButtonExportar.setText("Exportar");
-        JButtonExportar.addActionListener(new java.awt.event.ActionListener() {
+        JBExportarInven.setBackground(new java.awt.Color(255, 204, 0));
+        JBExportarInven.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBExportarInven.setText("Exportar");
+        JBExportarInven.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JButtonExportarActionPerformed(evt);
+                JBExportarInvenActionPerformed(evt);
             }
         });
 
@@ -203,7 +228,7 @@ public class AdmInventarioListView extends javax.swing.JFrame {
                         .addGap(45, 45, 45)
                         .addComponent(JButtonEliMat)
                         .addGap(51, 51, 51)
-                        .addComponent(JButtonExportar)))
+                        .addComponent(JBExportarInven)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -241,7 +266,7 @@ public class AdmInventarioListView extends javax.swing.JFrame {
                     .addComponent(JButtonAddMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonModMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JButtonEliMat, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JButtonExportar, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBExportarInven, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -267,9 +292,14 @@ public class AdmInventarioListView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JButtonEliMatActionPerformed
 
-    private void JButtonExportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonExportarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_JButtonExportarActionPerformed
+    private void JBExportarInvenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExportarInvenActionPerformed
+        try {
+            borrarArch();
+            generarReporteEmp();
+        } catch (IOException ex) {
+            Logger.getLogger(AdmInventarioListView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JBExportarInvenActionPerformed
 
     private void JButtonModMatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonModMatActionPerformed
         // TODO add your handling code here:
@@ -328,12 +358,12 @@ public class AdmInventarioListView extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JBAyuda2;
     private javax.swing.JButton JBEmpleado2;
+    private javax.swing.JButton JBExportarInven;
     private javax.swing.JButton JBFactura2;
     private javax.swing.JButton JBInventario2;
     private javax.swing.JButton JBPrincipal2;
     private javax.swing.JButton JButtonAddMat;
     private javax.swing.JButton JButtonEliMat;
-    private javax.swing.JButton JButtonExportar;
     private javax.swing.JButton JButtonModMat;
     private javax.swing.JTable JTableInven;
     private javax.swing.JLabel jLabel1;

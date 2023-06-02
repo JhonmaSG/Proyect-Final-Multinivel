@@ -66,6 +66,24 @@ public class ControllerInventario {
             inventarioView.setVisible(false);
             ayudaView.setVisible(true);
         });
+        
+        //BOTONES
+        //AGREGAR
+        empleadoView.agregar( (ActionEvent e) -> {
+            
+            });
+        //MODIFICAR
+        empleadoView.modificar( (ActionEvent e) -> {
+
+            });
+        //ELIMINAR
+        empleadoView.eliminar( (ActionEvent e) -> {
+
+            });
+        //EXPORTAR
+        empleadoView.exportar( (ActionEvent e) -> {
+
+            });
     }
     void mostrarDatos() throws SQLException{
         ArrayList<Inventario> models = dao.findAll();

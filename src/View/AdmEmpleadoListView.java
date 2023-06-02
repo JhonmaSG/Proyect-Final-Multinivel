@@ -6,7 +6,14 @@ package View;
 
 import Model.Empleado;
 import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -55,14 +62,33 @@ DefaultTableModel modelTable = new DefaultTableModel();
             modelTable.addRow(data);
         }
     }
-    public void deleteClientActionListener(ActionListener listener) {
-        //this.btnEliminar.addActionListener(listener);
+    
+    void borrarArch() {
+        String filePath = "C:\\Users\\Jhon\\Documents\\NetBeansProjects\\ProyectoFinalMulti\\EMPLEADOS.csv";
+        File archivoCSV = new File(filePath);
+        archivoCSV.delete();
+    }
+    
+    private void generarReporteEmp() throws IOException {
+        BufferedWriter fichero = new BufferedWriter(new FileWriter("EMPLEADOS.csv", true));
+        try {
+            for(int i=0; i< modelTable.getRowCount(); i++) {
+                for(int j=0; j < modelTable.getColumnCount(); j++) {
+                    fichero.write(modelTable.getValueAt(i,j).toString()+",");
+                }
+                fichero.write("\n");
+            }
+            fichero.close();
+            JOptionPane.showMessageDialog(null, "Guardado Correctamente");
+        } catch (Exception e) {
+             JOptionPane.showMessageDialog(null, "Guardado Erroneo");
+        }
     }
     
     public int getSelectedClient(){
         return this.JTableEmp.getSelectedRow();
     }
-    
+    //VENTANAS JFRAME
     public void cambiarPrincipal(ActionListener listener){
         JBPrincipal1.addActionListener(listener);
     }
@@ -77,6 +103,19 @@ DefaultTableModel modelTable = new DefaultTableModel();
     }
     public void cambiarAyuda(ActionListener listener){
         JBAyuda1.addActionListener(listener);
+    }
+    //BOTONES
+    public void agregar(ActionListener listener){
+        JBAgregarEmp.addActionListener(listener);
+    }
+    public void modificar(ActionListener listener){
+        JBModificarEmp.addActionListener(listener);
+    }
+    public void eliminar(ActionListener listener){
+        JBEliminarEmp.addActionListener(listener);
+    }
+    public void exportar(ActionListener listener){
+        JBExportarEmp.addActionListener(listener);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -96,12 +135,12 @@ DefaultTableModel modelTable = new DefaultTableModel();
         JBAyuda = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        JBAgregarEmp = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         JTableEmp = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        JBEliminarEmp = new javax.swing.JButton();
+        JBExportarEmp = new javax.swing.JButton();
+        JBModificarEmp = new javax.swing.JButton();
         JBPrincipal1 = new javax.swing.JButton();
         JBEmpleado1 = new javax.swing.JButton();
         JBInventario1 = new javax.swing.JButton();
@@ -154,12 +193,12 @@ DefaultTableModel modelTable = new DefaultTableModel();
         jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("EMPLEADOS");
 
-        jButton1.setBackground(new java.awt.Color(102, 255, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Agregar Empleado");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        JBAgregarEmp.setBackground(new java.awt.Color(102, 255, 0));
+        JBAgregarEmp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBAgregarEmp.setText("Agregar Empleado");
+        JBAgregarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                JBAgregarEmpActionPerformed(evt);
             }
         });
 
@@ -176,30 +215,30 @@ DefaultTableModel modelTable = new DefaultTableModel();
         ));
         jScrollPane3.setViewportView(JTableEmp);
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Eliminar Registro");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        JBEliminarEmp.setBackground(new java.awt.Color(255, 51, 51));
+        JBEliminarEmp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBEliminarEmp.setText("Eliminar Registro");
+        JBEliminarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                JBEliminarEmpActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 204, 0));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setText("Exportar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        JBExportarEmp.setBackground(new java.awt.Color(255, 204, 0));
+        JBExportarEmp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBExportarEmp.setText("Exportar");
+        JBExportarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                JBExportarEmpActionPerformed(evt);
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 204, 255));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setText("Modificar Registro");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        JBModificarEmp.setBackground(new java.awt.Color(0, 204, 255));
+        JBModificarEmp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        JBModificarEmp.setText("Modificar Registro");
+        JBModificarEmp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                JBModificarEmpActionPerformed(evt);
             }
         });
 
@@ -255,13 +294,13 @@ DefaultTableModel modelTable = new DefaultTableModel();
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(JBAgregarEmp)
                         .addGap(36, 36, 36)
-                        .addComponent(jButton4)
+                        .addComponent(JBModificarEmp)
                         .addGap(45, 45, 45)
-                        .addComponent(jButton2)
+                        .addComponent(JBEliminarEmp)
                         .addGap(51, 51, 51)
-                        .addComponent(jButton3)))
+                        .addComponent(JBExportarEmp)))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -280,10 +319,10 @@ DefaultTableModel modelTable = new DefaultTableModel();
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(36, 36, 36)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JBAgregarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBModificarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBEliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JBExportarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -301,21 +340,26 @@ DefaultTableModel modelTable = new DefaultTableModel();
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void JBAgregarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarEmpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_JBAgregarEmpActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void JBEliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBEliminarEmpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_JBEliminarEmpActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void JBExportarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBExportarEmpActionPerformed
+    try {
+        borrarArch();
+        generarReporteEmp();
+    } catch (IOException ex) {
+        Logger.getLogger(AdmEmpleadoListView.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_JBExportarEmpActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void JBModificarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBModificarEmpActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_JBModificarEmpActionPerformed
 
     private void JBInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBInventarioActionPerformed
         // TODO add your handling code here:
@@ -404,21 +448,21 @@ DefaultTableModel modelTable = new DefaultTableModel();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JBAgregarEmp;
     private javax.swing.JButton JBAyuda;
     private javax.swing.JButton JBAyuda1;
+    private javax.swing.JButton JBEliminarEmp;
     private javax.swing.JButton JBEmpleado;
     private javax.swing.JButton JBEmpleado1;
+    private javax.swing.JButton JBExportarEmp;
     private javax.swing.JButton JBFactura1;
     private javax.swing.JButton JBFacturas;
     private javax.swing.JButton JBInventario;
     private javax.swing.JButton JBInventario1;
+    private javax.swing.JButton JBModificarEmp;
     private javax.swing.JButton JBPrincipal;
     private javax.swing.JButton JBPrincipal1;
     private javax.swing.JTable JTableEmp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

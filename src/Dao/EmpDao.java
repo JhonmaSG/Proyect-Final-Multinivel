@@ -6,7 +6,9 @@ package Dao;
 
 import DaoInterface.EmpDaoInterface;
 import Model.Empleado;
+import com.sun.jdi.connect.spi.Connection;
 import database.Connector;
+import database.MySqlConnection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,22 +20,23 @@ import java.util.ArrayList;
  * @author Jhon
  */
 public class EmpDao implements EmpDaoInterface{
-    Connector connector = null;
+    MySqlConnection connection = new MySqlConnection();
+    //Connection dbConnection = (Connection) connection.getConnection();
     
     public EmpDao(){
-        this.connector = new Connector() {};
+        this.connection = (MySqlConnection) new Connector();
     }
     
     @Override
     public void update(Empleado empleadoModel) {
-        String sql = "UPDATE EMPLEADO SET Nombre_Em = ?, Apellido_Em = ?, Cargo = ?, Tel_Em = ?, correo_Em = ?,Des_Pension = ?"
+        String sql = "UPDATE empleado SET Nombre_Em = ?, Apellido_Em = ?, Cargo = ?, Tel_Em = ?, correo_Em = ?,Des_Pension = ?"
                 + ", Des_Salud = ?, Salario = ?";
        
         try{
             Empleado modelUpdate = (Empleado) empleadoModel;
             
             PreparedStatement statement;
-            statement = connector.getConnection().prepareStatement(sql);
+            statement = connection.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getNombre_Em());
             statement.setString(2, modelUpdate.getApellido_Em());
@@ -49,22 +52,22 @@ public class EmpDao implements EmpDaoInterface{
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+            connection.getConnection().close();
         } catch(Exception ex){
-            System.out.println("Error" + ex.getMessage());
+            System.out.println("Error update" + ex.getMessage());
         }
     }
 
     @Override
     public void create(Empleado empleadoModel) {
-       String sql = "INSERT INTO EMPLEADO (Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,Des_Pension, Des_Salud, Salario)" +
+       String sql = "INSERT INTO empleado (Nombre_Em, Apellido_Em, Cargo, Tel_Em, correo_Em ,Des_Pension, Des_Salud, Salario)" +
                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
        
         try{
             Empleado modelUpdate = (Empleado) empleadoModel;
             
             PreparedStatement statement;
-            statement = connector.getConnection().prepareStatement(sql);
+            statement = connection.getConnection().prepareStatement(sql);
             
             statement.setString(1, modelUpdate.getNombre_Em());
             statement.setString(2, modelUpdate.getApellido_Em());
@@ -78,90 +81,87 @@ public class EmpDao implements EmpDaoInterface{
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+            connection.getConnection().close();
         } catch(Exception ex){
-            System.out.println("Error" + ex.getMessage());
+            System.out.println("Error create" + ex.getMessage());
         }
     }
 
     @Override
     public void deleteById(int id) {
-        String sql = "delete from EMPLEADO where Id_Em = ?";
+        String sql = "delete from empleado where Id_Em = ?";
         
         try{            
             PreparedStatement statement;
-            statement = connector.getConnection().prepareStatement(sql);            
+            statement = connection.getConnection().prepareStatement(sql);            
             statement.setString(1, id + "");
 
             statement.executeUpdate();
             
             statement.close();
-            connector.getConnection().close();
+            connection.getConnection().close();
         } catch(Exception ex){
-            System.out.println("Error" + ex.getMessage());
+            System.out.println("Error deleteById" + ex.getMessage());
         }
-        
     }
     
     @Override
     public Empleado findById(int id) {
-        String sql = "select * from EMPLEADO where id = ?";
+        String sql = "select * from empleado where id = ?";
         Empleado model = null;
          
         try{
             PreparedStatement statement;
-            statement = connector.getConnection().prepareStatement(sql);
+            statement = connection.getConnection().prepareStatement(sql);
             ResultSet resultSet;
             
             statement.setInt(1, id);
-                    
             resultSet = statement.executeQuery();
             
             if (resultSet.next()){
                 model = new Empleado(
-                   resultSet.getInt("Id"),
-                   resultSet.getString("Nombre"),
-                   resultSet.getString("Apellido"),
+                   resultSet.getInt("Id_Em"),
+                   resultSet.getString("Nombre_Em"),
+                   resultSet.getString("Apellido_Em"),
                    resultSet.getString("Cargo"),
-                   resultSet.getString("Telefono"),
-                   resultSet.getString("Correo"),
-                   resultSet.getString("DesPension"),
-                   resultSet.getString("DesSalud"),
+                   resultSet.getString("Tel_Em"),
+                   resultSet.getString("correo_Em"),
+                   resultSet.getString("Des_Pension"),
+                   resultSet.getString("Des_Salud"),
                    resultSet.getString("Salario"));
-              
             }
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
+            connection.getConnection().close();
         } catch(SQLException ex){
-            System.out.println("Error" + ex.getMessage());
+            System.out.println("Error findAll" + ex.getMessage());
         }
         
         return model;
     }
     
     public ArrayList<Empleado> findAll(){
-        String sql = "SELECT * FROM EMPLEADO";
+        String sql = "select * from empleado";
         ArrayList<Empleado> lista = new ArrayList<>();
         
         try {
             Statement statement;
        
-            statement = connector.getConnection().createStatement();
+            statement = connection.getConnection().createStatement();
             ResultSet resultSet;
             resultSet = statement.executeQuery(sql);
         
             while (resultSet.next()) {
                 Empleado model = new Empleado(
-                   resultSet.getInt("Id"),
-                   resultSet.getString("Nombre"),
-                   resultSet.getString("Apellido"),
+                   resultSet.getInt("Id_Em"),
+                   resultSet.getString("Nombre_Em"),
+                   resultSet.getString("Apellido_Em"),
                    resultSet.getString("Cargo"),
-                   resultSet.getString("Telefono"),
-                   resultSet.getString("Correo"),
-                   resultSet.getString("DesPension"),
-                   resultSet.getString("DesSalud"),
+                   resultSet.getString("Tel_Em"),
+                   resultSet.getString("correo_Em"),
+                   resultSet.getString("Des_Pension"),
+                   resultSet.getString("Des_Salud"),
                    resultSet.getString("Salario")
                 );
                 lista.add(model);
@@ -169,9 +169,10 @@ public class EmpDao implements EmpDaoInterface{
             
             resultSet.close();
             statement.close();
-            connector.getConnection().close();
+            connection.getConnection().close();
+            System.out.println("Conexion realizada FindAll");
         } catch(SQLException ex){
-            System.out.println("Error" + ex.getMessage());
+            System.out.println("Error5 " + ex.getMessage());
         }
         
         return lista;

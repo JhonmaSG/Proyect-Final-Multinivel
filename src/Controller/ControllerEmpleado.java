@@ -4,6 +4,7 @@
  */
 package Controller;
 
+import Dao.EmpDao;
 import Model.Empleado;
 import View.AdmAyudaListView;
 import View.AdmInventarioListView;
@@ -11,6 +12,8 @@ import View.AdmEmpleadoListView;
 import View.AdmPrincipalListView;
 import View.AdmFacturaListView;
 import java.awt.event.ActionEvent;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -24,11 +27,13 @@ public class ControllerEmpleado {
     private AdmAyudaListView ayudaView;
     
     //Model
-    private Empleado empleadoModel;
+    private Empleado empleadoModel; 
+    //Dao
+    private EmpDao dao;
 
     public ControllerEmpleado(AdmPrincipalListView principalView, AdmEmpleadoListView empleadoView,
             AdmInventarioListView inventarioView, AdmFacturaListView facturaView, AdmAyudaListView ayudaView,
-            Empleado empleadoModel) {
+            Empleado empleadoModel) throws SQLException {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
@@ -36,7 +41,9 @@ public class ControllerEmpleado {
         this.ayudaView = ayudaView;
         this.empleadoModel = empleadoModel;
         
+        this.dao = new EmpDao();
         //empleadoView.setVisible(true);
+        mostrarDatos();
         
         //PRINCIPAL
         empleadoView.cambiarPrincipal( (ActionEvent e) -> {
@@ -58,5 +65,10 @@ public class ControllerEmpleado {
             empleadoView.setVisible(false);
             ayudaView.setVisible(true);
         });
-    }  
+        }
+    
+    void mostrarDatos() throws SQLException{
+        ArrayList<Empleado> models = dao.findAll();
+        this.empleadoView.mostrarDatos(models);
+    }
 }

@@ -4,6 +4,8 @@
  */
 package Controller;
 
+
+import Dao.InvenDao;
 import Model.Inventario;
 import View.AdmAyudaListView;
 import View.AdmInventarioListView;
@@ -12,6 +14,8 @@ import View.AdmPrincipalListView;
 import View.AdmFacturaListView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -26,10 +30,11 @@ public class ControllerInventario {
     
     //Model
     private Inventario inventarioModel;
+    private InvenDao dao;
 
     public ControllerInventario(AdmPrincipalListView principalView, AdmEmpleadoListView empleadoView,
             AdmInventarioListView inventarioView, AdmFacturaListView facturaView, AdmAyudaListView ayudaView,
-            Inventario inventarioModel ) {
+            Inventario inventarioModel ) throws SQLException {
         this.principalView = principalView;
         this.inventarioView = inventarioView;
         this.empleadoView = empleadoView;
@@ -37,6 +42,8 @@ public class ControllerInventario {
         this.ayudaView = ayudaView;
         this.inventarioModel = inventarioModel;
         
+        this.dao = new InvenDao();
+        mostrarDatos();
         //inventarioView.setVisible(true);
         
         //PRINCIPAL
@@ -59,5 +66,9 @@ public class ControllerInventario {
             inventarioView.setVisible(false);
             ayudaView.setVisible(true);
         });
-    }  
+    }
+    void mostrarDatos() throws SQLException{
+        ArrayList<Inventario> models = dao.findAll();
+        this.inventarioView.mostrarDatos(models);
+    }
 }

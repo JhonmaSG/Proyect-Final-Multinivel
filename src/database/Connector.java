@@ -10,27 +10,21 @@ import java.util.logging.Logger;
 
 public class Connector {
     
-    String bd = "confeccion";
-    String url = "jdbc:mysql://localhost:3306/";
+    String bd = "confeccionista";
+    String url = "jdbc:mysql://localhost:3307/";
     String user = "root";
-    String password = "";    
+    String password = "";
     String driver  = "com.mysql.cj.jdbc.Driver";
     
     Connection conexion;
-    /*
-    public Connector(String bd){
-        this.bd = bd;
-    }
-    */
-
+    
     public Connection conectar(){
         try {
             Class.forName(driver);
             conexion = DriverManager.getConnection(url + bd, user, password);
             System.out.println("Conexion exitosa con la bd " + bd);
         } catch (ClassNotFoundException | SQLException ex) {
-            System.out.println("No se Conecto a la BD, error: " + ex.getMessage());   
-            Logger.getLogger(Connector.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("No se Conecto a la BD, error: " + ex.getMessage());
         }
         return conexion;
     }
@@ -42,12 +36,14 @@ public class Connector {
                 conexion.close();
             }
         } catch (SQLException ex){
-            //Logger.getLogger(ConnectorDB.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Error al cerrar Conexion "+ ex.toString() );
         }
     }
     
     public Connection getConnection() {
+        if (conexion == null) {
+            conexion = conectar();
+        }
         return conexion;
     }
 }

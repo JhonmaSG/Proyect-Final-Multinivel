@@ -2,6 +2,15 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/Dao/FacDao.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/Controller/ControllerEmpleado.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/Dao/InvenDao.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/Main/Main.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/Controller/ControllerPrincipal.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/DaoInterface/EmpDaoInterface.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/Dao/EmpDao.java</file>
+            <file>file:/C:/Users/Jhon/Documents/NetBeansProjects/ProyectoFinalMulti/src/database/Connector.java</file>
+        </group>
     </open-files>
 </project-private>

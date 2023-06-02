@@ -165,13 +165,13 @@ DefaultTableModel modelTable = new DefaultTableModel();
 
         JTableEmp.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Cargo", "Código", "Nombre", "Apellido", "Edad", "Sueldo"
+                "Id", "Cargo", "Código", "Nombre", "Apellido", "Edad", "Sueldo"
             }
         ));
         jScrollPane3.setViewportView(JTableEmp);

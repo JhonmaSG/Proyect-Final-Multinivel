@@ -17,5 +17,4 @@ public interface EmpDaoInterface {
     public void deleteById(int id);
     public Empleado findById(int id);
     public ArrayList<Empleado> findAll();
-    
 }
